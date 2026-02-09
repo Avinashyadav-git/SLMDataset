@@ -1,0 +1,634 @@
+[
+    {
+        "functionName": "Effect_DropShadow",
+        "description": "Add a drop shadow effect to the current layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Drop shadow added successfully.",
+            "error": "Unable to add drop shadow. Ensure a document is open and a layer is selected.",
+            "info": "Adding drop shadow effect"
+        },
+        "params": [
+            {
+                "paramName": "opacity",
+                "paramType": "number",
+                "paramDescription": "Shadow opacity from 0 to 100 percent. Default is 75.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "angle",
+                "paramType": "number",
+                "paramDescription": "Light angle in degrees from -180 to 180. Default is 120.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "distance",
+                "paramType": "number",
+                "paramDescription": "Shadow distance in pixels from 0 to 30000. Default is 5.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "spread",
+                "paramType": "number",
+                "paramDescription": "Shadow spread from 0 to 100 percent. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "size",
+                "paramType": "number",
+                "paramDescription": "Shadow blur size in pixels from 0 to 250. Default is 5.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorRed",
+                "paramType": "number",
+                "paramDescription": "Red component of shadow color (0-255). Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorGreen",
+                "paramType": "number",
+                "paramDescription": "Green component of shadow color (0-255). Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorBlue",
+                "paramType": "number",
+                "paramDescription": "Blue component of shadow color (0-255). Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "blendMode",
+                "paramType": "string",
+                "paramDescription": "Blending mode. Possible values: NORMAL, MULTIPLY, SCREEN, OVERLAY, DARKEN, LIGHTEN, COLOR_DODGE, COLOR_BURN. Default is MULTIPLY.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Effect_InnerShadow",
+        "description": "Add an inner shadow effect to the current layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Inner shadow added successfully.",
+            "error": "Unable to add inner shadow. Ensure a document is open and a layer is selected.",
+            "info": "Adding inner shadow effect"
+        },
+        "params": [
+            {
+                "paramName": "opacity",
+                "paramType": "number",
+                "paramDescription": "Shadow opacity from 0 to 100 percent. Default is 75.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "angle",
+                "paramType": "number",
+                "paramDescription": "Light angle in degrees from -180 to 180. Default is 120.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "distance",
+                "paramType": "number",
+                "paramDescription": "Shadow distance in pixels from 0 to 30000. Default is 5.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "choke",
+                "paramType": "number",
+                "paramDescription": "Shadow choke from 0 to 100 percent. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "size",
+                "paramType": "number",
+                "paramDescription": "Shadow blur size in pixels from 0 to 250. Default is 5.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorRed",
+                "paramType": "number",
+                "paramDescription": "Red component of shadow color (0-255). Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorGreen",
+                "paramType": "number",
+                "paramDescription": "Green component of shadow color (0-255). Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorBlue",
+                "paramType": "number",
+                "paramDescription": "Blue component of shadow color (0-255). Default is 0.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Effect_OuterGlow",
+        "description": "Add an outer glow effect to the current layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Outer glow added successfully.",
+            "error": "Unable to add outer glow. Ensure a document is open and a layer is selected.",
+            "info": "Adding outer glow effect"
+        },
+        "params": [
+            {
+                "paramName": "opacity",
+                "paramType": "number",
+                "paramDescription": "Glow opacity from 0 to 100 percent. Default is 75.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "spread",
+                "paramType": "number",
+                "paramDescription": "Glow spread from 0 to 100 percent. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "size",
+                "paramType": "number",
+                "paramDescription": "Glow size in pixels from 0 to 250. Default is 5.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorRed",
+                "paramType": "number",
+                "paramDescription": "Red component of glow color (0-255). Default is 255.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorGreen",
+                "paramType": "number",
+                "paramDescription": "Green component of glow color (0-255). Default is 255.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorBlue",
+                "paramType": "number",
+                "paramDescription": "Blue component of glow color (0-255). Default is 190.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "technique",
+                "paramType": "string",
+                "paramDescription": "Glow technique. Possible values: SOFTER, PRECISE. Default is SOFTER.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "blendMode",
+                "paramType": "string",
+                "paramDescription": "Blending mode. Possible values: NORMAL, SCREEN, MULTIPLY, OVERLAY. Default is SCREEN.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Effect_InnerGlow",
+        "description": "Add an inner glow effect to the current layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Inner glow added successfully.",
+            "error": "Unable to add inner glow. Ensure a document is open and a layer is selected.",
+            "info": "Adding inner glow effect"
+        },
+        "params": [
+            {
+                "paramName": "opacity",
+                "paramType": "number",
+                "paramDescription": "Glow opacity from 0 to 100 percent. Default is 75.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "choke",
+                "paramType": "number",
+                "paramDescription": "Glow choke from 0 to 100 percent. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "size",
+                "paramType": "number",
+                "paramDescription": "Glow size in pixels from 0 to 250. Default is 5.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorRed",
+                "paramType": "number",
+                "paramDescription": "Red component of glow color (0-255). Default is 255.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorGreen",
+                "paramType": "number",
+                "paramDescription": "Green component of glow color (0-255). Default is 255.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorBlue",
+                "paramType": "number",
+                "paramDescription": "Blue component of glow color (0-255). Default is 190.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "source",
+                "paramType": "string",
+                "paramDescription": "Glow source. Possible values: CENTER, EDGE. Default is EDGE.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "technique",
+                "paramType": "string",
+                "paramDescription": "Glow technique. Possible values: SOFTER, PRECISE. Default is SOFTER.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Effect_BevelEmboss",
+        "description": "Add bevel and emboss effect to give 3D appearance to the layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Bevel and emboss added successfully.",
+            "error": "Unable to add bevel and emboss. Ensure a document is open and a layer is selected.",
+            "info": "Adding bevel and emboss effect"
+        },
+        "params": [
+            {
+                "paramName": "style",
+                "paramType": "string",
+                "paramDescription": "Bevel style. Possible values: OUTER_BEVEL, INNER_BEVEL, EMBOSS, PILLOW_EMBOSS, STROKE_EMBOSS. Default is INNER_BEVEL.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "technique",
+                "paramType": "string",
+                "paramDescription": "Technique type. Possible values: SMOOTH, CHISEL_HARD, CHISEL_SOFT. Default is SMOOTH.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "depth",
+                "paramType": "number",
+                "paramDescription": "Depth of bevel from 1 to 1000 percent. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "direction",
+                "paramType": "string",
+                "paramDescription": "Direction. Possible values: UP, DOWN. Default is UP.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "size",
+                "paramType": "number",
+                "paramDescription": "Size in pixels from 0 to 250. Default is 5.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "soften",
+                "paramType": "number",
+                "paramDescription": "Soften amount from 0 to 16. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "angle",
+                "paramType": "number",
+                "paramDescription": "Light angle in degrees from -180 to 180. Default is 120.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "altitude",
+                "paramType": "number",
+                "paramDescription": "Light altitude in degrees from 0 to 90. Default is 30.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "highlightOpacity",
+                "paramType": "number",
+                "paramDescription": "Highlight opacity from 0 to 100. Default is 75.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "shadowOpacity",
+                "paramType": "number",
+                "paramDescription": "Shadow opacity from 0 to 100. Default is 75.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Effect_Satin",
+        "description": "Add a satin effect to create smooth interior shading.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Satin effect added successfully.",
+            "error": "Unable to add satin effect. Ensure a document is open and a layer is selected.",
+            "info": "Adding satin effect"
+        },
+        "params": [
+            {
+                "paramName": "opacity",
+                "paramType": "number",
+                "paramDescription": "Effect opacity from 0 to 100 percent. Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "angle",
+                "paramType": "number",
+                "paramDescription": "Light angle in degrees from -180 to 180. Default is 19.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "distance",
+                "paramType": "number",
+                "paramDescription": "Distance in pixels from 0 to 30000. Default is 11.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "size",
+                "paramType": "number",
+                "paramDescription": "Size in pixels from 0 to 250. Default is 14.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorRed",
+                "paramType": "number",
+                "paramDescription": "Red component of color (0-255). Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorGreen",
+                "paramType": "number",
+                "paramDescription": "Green component of color (0-255). Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorBlue",
+                "paramType": "number",
+                "paramDescription": "Blue component of color (0-255). Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "invert",
+                "paramType": "boolean",
+                "paramDescription": "Invert the effect. Default is false.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Effect_ColorOverlay",
+        "description": "Apply a solid color overlay to the layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Color overlay added successfully.",
+            "error": "Unable to add color overlay. Ensure a document is open and a layer is selected.",
+            "info": "Adding color overlay"
+        },
+        "params": [
+            {
+                "paramName": "colorRed",
+                "paramType": "number",
+                "paramDescription": "Red component (0-255). Default is 255.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorGreen",
+                "paramType": "number",
+                "paramDescription": "Green component (0-255). Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorBlue",
+                "paramType": "number",
+                "paramDescription": "Blue component (0-255). Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "opacity",
+                "paramType": "number",
+                "paramDescription": "Overlay opacity from 0 to 100 percent. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "blendMode",
+                "paramType": "string",
+                "paramDescription": "Blending mode. Possible values: NORMAL, MULTIPLY, SCREEN, OVERLAY, SOFT_LIGHT, HARD_LIGHT, COLOR, HUE. Default is NORMAL.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Effect_GradientOverlay",
+        "description": "Apply a gradient overlay to the layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Gradient overlay added successfully.",
+            "error": "Unable to add gradient overlay. Ensure a document is open and a layer is selected.",
+            "info": "Adding gradient overlay"
+        },
+        "params": [
+            {
+                "paramName": "style",
+                "paramType": "string",
+                "paramDescription": "Gradient style. Possible values: LINEAR, RADIAL, ANGLE, REFLECTED, DIAMOND. Default is LINEAR.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "angle",
+                "paramType": "number",
+                "paramDescription": "Gradient angle in degrees from -180 to 180. Default is 90.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "scale",
+                "paramType": "number",
+                "paramDescription": "Gradient scale from 10 to 150 percent. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "opacity",
+                "paramType": "number",
+                "paramDescription": "Overlay opacity from 0 to 100 percent. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "reverse",
+                "paramType": "boolean",
+                "paramDescription": "Reverse gradient direction. Default is false.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "blendMode",
+                "paramType": "string",
+                "paramDescription": "Blending mode. Possible values: NORMAL, MULTIPLY, SCREEN, OVERLAY. Default is NORMAL.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Effect_PatternOverlay",
+        "description": "Apply a pattern overlay to the layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Pattern overlay added successfully.",
+            "error": "Unable to add pattern overlay. Ensure a document is open and a layer is selected.",
+            "info": "Adding pattern overlay"
+        },
+        "params": [
+            {
+                "paramName": "scale",
+                "paramType": "number",
+                "paramDescription": "Pattern scale from 1 to 1000 percent. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "opacity",
+                "paramType": "number",
+                "paramDescription": "Overlay opacity from 0 to 100 percent. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "blendMode",
+                "paramType": "string",
+                "paramDescription": "Blending mode. Possible values: NORMAL, MULTIPLY, SCREEN, OVERLAY. Default is NORMAL.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Effect_Stroke",
+        "description": "Add a stroke outline effect to the layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Stroke added successfully.",
+            "error": "Unable to add stroke. Ensure a document is open and a layer is selected.",
+            "info": "Adding stroke effect"
+        },
+        "params": [
+            {
+                "paramName": "size",
+                "paramType": "number",
+                "paramDescription": "Stroke size in pixels from 1 to 250. Default is 3.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "position",
+                "paramType": "string",
+                "paramDescription": "Stroke position. Possible values: OUTSIDE, INSIDE, CENTER. Default is OUTSIDE.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "fillType",
+                "paramType": "string",
+                "paramDescription": "Fill type. Possible values: COLOR, GRADIENT, PATTERN. Default is COLOR.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorRed",
+                "paramType": "number",
+                "paramDescription": "Red component (0-255). Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorGreen",
+                "paramType": "number",
+                "paramDescription": "Green component (0-255). Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorBlue",
+                "paramType": "number",
+                "paramDescription": "Blue component (0-255). Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "opacity",
+                "paramType": "number",
+                "paramDescription": "Stroke opacity from 0 to 100 percent. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "blendMode",
+                "paramType": "string",
+                "paramDescription": "Blending mode. Possible values: NORMAL, MULTIPLY, SCREEN, OVERLAY. Default is NORMAL.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Effect_ClearLayerStyles",
+        "description": "Remove all layer styles and effects from the current layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "All layer styles cleared.",
+            "error": "Unable to clear layer styles. Ensure a document is open and a layer with styles is selected.",
+            "info": "Clearing layer styles"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Effect_CopyLayerStyle",
+        "description": "Copy layer styles from the current layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer style copied to clipboard.",
+            "error": "Unable to copy layer style. Ensure a layer with styles is selected.",
+            "info": "Copying layer style"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Effect_PasteLayerStyle",
+        "description": "Paste previously copied layer styles to the current layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer style pasted successfully.",
+            "error": "Unable to paste layer style. Copy a layer style first.",
+            "info": "Pasting layer style"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Effect_ScaleEffects",
+        "description": "Scale all layer effects proportionally.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer effects scaled successfully.",
+            "error": "Unable to scale effects. Ensure a layer with effects is selected.",
+            "info": "Scaling layer effects"
+        },
+        "params": [
+            {
+                "paramName": "scale",
+                "paramType": "number",
+                "paramDescription": "Scale percentage from 1 to 1000. Default is 100.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Effect_CreateLayerFromStyle",
+        "description": "Convert layer effects to separate editable layers.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer effects converted to layers.",
+            "error": "Unable to create layers from style. Ensure a layer with effects is selected.",
+            "info": "Creating layers from effects"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Effect_BlendingOptions",
+        "description": "Open the Layer Style dialog to adjust blending options.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer Style dialog is open. Adjust blending options and click OK.",
+            "error": "Unable to open Layer Style dialog. Ensure a layer is selected.",
+            "info": "Opening Layer Style blending options"
+        },
+        "params": [],
+        "undoable": false
+    }
+]

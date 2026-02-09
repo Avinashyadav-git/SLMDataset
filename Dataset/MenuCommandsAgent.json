@@ -1,0 +1,54 @@
+[
+    {
+        "functionName": "MenuCommand_FileOpen",
+        "description": "Open or import a document from local file system using the standard file browser dialog.",
+        "userMessage": {
+            "success": "Document opened and ready for editing.",
+            "error": "Unable to open document. The file may be corrupted, in an unsupported format, or not accessible.",
+            "info": "Opening File Open dialog"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "MenuCommand_Save",
+        "description": "Open Save Document dialog for choosing save location, filename, and format. Does not auto-save.",
+        "prerequisites" : ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Save dialog opened. Choose a location and format to save the document.",
+            "error": "Unable to open save dialog. No active document or an issue occurred accessing the save functionality.",
+            "info": "Opening Save dialog"
+        },
+        "params": [
+            {
+                "paramName": "format",
+                "paramType": "string",
+                "paramDescription": "Optional. The file format to suggest in the dialog (e.g., 'JPEG', 'PNG', 'PSD'). If not provided, the current format is used.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "MenuCommand_AutoLevels",
+        "description": "Automatically adjust tonal range using Auto Levels algorithm to enhance contrast and tonal balance.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Auto Levels applied to the document.",
+            "error": "Unable to apply Auto Levels. Ensure a document is open and try again.",
+            "info": "Adjusting tonal range using Auto Levels"
+        },
+        "params": []
+    },
+    {
+        "functionName": "MenuCommand_AutoContrast",
+        "description": "Automatically adjust contrast without affecting color balance by setting darkest/lightest pixels to black/white.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Auto Contrast applied to the document.",
+            "error": "Unable to apply Auto Contrast. Ensure a document is open and try again.",
+            "info": "Adjusting contrast without affecting color balance"
+        },
+        "params": []
+    }
+]

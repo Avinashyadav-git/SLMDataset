@@ -1,0 +1,499 @@
+[
+    {
+        "functionName": "Brush_SelectBrush",
+        "description": "Select and activate the brush tool for painting.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Brush tool selected and ready.",
+            "error": "Unable to select brush tool. Ensure a document is open.",
+            "info": "Selecting brush tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Brush_SetSize",
+        "description": "Set the brush size in pixels.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Brush size set successfully.",
+            "error": "Unable to set brush size. Invalid value provided.",
+            "info": "Setting brush size"
+        },
+        "params": [
+            {
+                "paramName": "size",
+                "paramType": "number",
+                "paramDescription": "Brush size in pixels from 1 to 5000. Default is 30.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Brush_SetHardness",
+        "description": "Set the brush hardness for soft or hard edges.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Brush hardness set successfully.",
+            "error": "Unable to set brush hardness. Invalid value provided.",
+            "info": "Setting brush hardness"
+        },
+        "params": [
+            {
+                "paramName": "hardness",
+                "paramType": "number",
+                "paramDescription": "Hardness percentage from 0 (soft) to 100 (hard). Default is 100.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Brush_SetOpacity",
+        "description": "Set the brush opacity for painting transparency.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Brush opacity set successfully.",
+            "error": "Unable to set brush opacity. Invalid value provided.",
+            "info": "Setting brush opacity"
+        },
+        "params": [
+            {
+                "paramName": "opacity",
+                "paramType": "number",
+                "paramDescription": "Opacity percentage from 1 to 100. Default is 100.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Brush_SetFlow",
+        "description": "Set the brush flow rate for paint buildup.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Brush flow set successfully.",
+            "error": "Unable to set brush flow. Invalid value provided.",
+            "info": "Setting brush flow"
+        },
+        "params": [
+            {
+                "paramName": "flow",
+                "paramType": "number",
+                "paramDescription": "Flow percentage from 1 to 100. Default is 100.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Brush_SetBlendMode",
+        "description": "Set the blending mode for brush strokes.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Brush blend mode set successfully.",
+            "error": "Unable to set brush blend mode. Invalid mode provided.",
+            "info": "Setting brush blend mode"
+        },
+        "params": [
+            {
+                "paramName": "blendMode",
+                "paramType": "string",
+                "paramDescription": "Blending mode. Possible values: NORMAL, DISSOLVE, DARKEN, MULTIPLY, COLOR_BURN, LINEAR_BURN, LIGHTEN, SCREEN, COLOR_DODGE, LINEAR_DODGE, OVERLAY, SOFT_LIGHT, HARD_LIGHT, VIVID_LIGHT, LINEAR_LIGHT, PIN_LIGHT, HARD_MIX, DIFFERENCE, EXCLUSION, HUE, SATURATION, COLOR, LUMINOSITY. Default is NORMAL.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Brush_SetSmoothing",
+        "description": "Set brush stroke smoothing for smoother lines.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Brush smoothing set successfully.",
+            "error": "Unable to set brush smoothing. Invalid value provided.",
+            "info": "Setting brush smoothing"
+        },
+        "params": [
+            {
+                "paramName": "smoothing",
+                "paramType": "number",
+                "paramDescription": "Smoothing percentage from 0 to 100. Higher values create smoother strokes but with more lag. Default is 10.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Brush_SelectEraser",
+        "description": "Select and activate the eraser tool.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Eraser tool selected and ready.",
+            "error": "Unable to select eraser tool. Ensure a document is open.",
+            "info": "Selecting eraser tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Brush_SelectPencil",
+        "description": "Select and activate the pencil tool for hard-edged lines.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Pencil tool selected and ready.",
+            "error": "Unable to select pencil tool. Ensure a document is open.",
+            "info": "Selecting pencil tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Brush_SelectMixerBrush",
+        "description": "Select the mixer brush for realistic paint mixing effects.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Mixer Brush tool selected and ready.",
+            "error": "Unable to select Mixer Brush tool. Ensure a document is open.",
+            "info": "Selecting Mixer Brush tool"
+        },
+        "params": [
+            {
+                "paramName": "wet",
+                "paramType": "number",
+                "paramDescription": "Wetness of brush from 0 to 100. Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "load",
+                "paramType": "number",
+                "paramDescription": "Amount of paint loaded from 0 to 100. Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "mix",
+                "paramType": "number",
+                "paramDescription": "Mix ratio of colors from 0 to 100. Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "flow",
+                "paramType": "number",
+                "paramDescription": "Flow rate from 0 to 100. Default is 50.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Brush_SelectCloneStamp",
+        "description": "Select the clone stamp tool for duplicating image areas.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Clone Stamp tool selected. Alt/Option+click to set source point.",
+            "error": "Unable to select Clone Stamp tool. Ensure a document is open.",
+            "info": "Selecting Clone Stamp tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Brush_SelectHealingBrush",
+        "description": "Select the healing brush for seamless touch-ups.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Healing Brush tool selected. Alt/Option+click to set source point.",
+            "error": "Unable to select Healing Brush tool. Ensure a document is open.",
+            "info": "Selecting Healing Brush tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Brush_SelectSpotHealing",
+        "description": "Select the spot healing brush for quick blemish removal.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Spot Healing Brush tool selected and ready.",
+            "error": "Unable to select Spot Healing Brush tool. Ensure a document is open.",
+            "info": "Selecting Spot Healing Brush tool"
+        },
+        "params": [
+            {
+                "paramName": "type",
+                "paramType": "string",
+                "paramDescription": "Healing type. Possible values: PROXIMITY_MATCH, CREATE_TEXTURE, CONTENT_AWARE. Default is CONTENT_AWARE.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Brush_SelectPatchTool",
+        "description": "Select the patch tool for larger area repairs.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Patch tool selected. Draw around the area to repair.",
+            "error": "Unable to select Patch tool. Ensure a document is open.",
+            "info": "Selecting Patch tool"
+        },
+        "params": [
+            {
+                "paramName": "patchMode",
+                "paramType": "string",
+                "paramDescription": "Patch mode. Possible values: NORMAL, CONTENT_AWARE. Default is NORMAL.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "source",
+                "paramType": "string",
+                "paramDescription": "Source or destination. Possible values: SOURCE, DESTINATION. Default is SOURCE.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Brush_SelectContentAwareFill",
+        "description": "Use content-aware fill to remove objects intelligently.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Content-aware fill applied successfully.",
+            "error": "Unable to apply content-aware fill. Make a selection around the area to remove.",
+            "info": "Applying content-aware fill"
+        },
+        "params": [
+            {
+                "paramName": "colorAdaptation",
+                "paramType": "string",
+                "paramDescription": "Color adaptation level. Possible values: NONE, DEFAULT, HIGH, VERY_HIGH. Default is DEFAULT.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Brush_SelectDodge",
+        "description": "Select the dodge tool to lighten areas.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Dodge tool selected and ready.",
+            "error": "Unable to select Dodge tool. Ensure a document is open.",
+            "info": "Selecting Dodge tool"
+        },
+        "params": [
+            {
+                "paramName": "range",
+                "paramType": "string",
+                "paramDescription": "Tonal range to affect. Possible values: SHADOWS, MIDTONES, HIGHLIGHTS. Default is MIDTONES.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "exposure",
+                "paramType": "number",
+                "paramDescription": "Effect strength from 1 to 100 percent. Default is 50.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Brush_SelectBurn",
+        "description": "Select the burn tool to darken areas.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Burn tool selected and ready.",
+            "error": "Unable to select Burn tool. Ensure a document is open.",
+            "info": "Selecting Burn tool"
+        },
+        "params": [
+            {
+                "paramName": "range",
+                "paramType": "string",
+                "paramDescription": "Tonal range to affect. Possible values: SHADOWS, MIDTONES, HIGHLIGHTS. Default is MIDTONES.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "exposure",
+                "paramType": "number",
+                "paramDescription": "Effect strength from 1 to 100 percent. Default is 50.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Brush_SelectSponge",
+        "description": "Select the sponge tool to saturate or desaturate colors.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Sponge tool selected and ready.",
+            "error": "Unable to select Sponge tool. Ensure a document is open.",
+            "info": "Selecting Sponge tool"
+        },
+        "params": [
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "Sponge mode. Possible values: SATURATE, DESATURATE. Default is SATURATE.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "flow",
+                "paramType": "number",
+                "paramDescription": "Flow rate from 1 to 100 percent. Default is 50.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Brush_SelectSmudge",
+        "description": "Select the smudge tool to blend and smear colors.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Smudge tool selected and ready.",
+            "error": "Unable to select Smudge tool. Ensure a document is open.",
+            "info": "Selecting Smudge tool"
+        },
+        "params": [
+            {
+                "paramName": "strength",
+                "paramType": "number",
+                "paramDescription": "Smudge strength from 1 to 100 percent. Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "fingerPainting",
+                "paramType": "boolean",
+                "paramDescription": "Start stroke with foreground color. Default is false.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Brush_SelectBlur",
+        "description": "Select the blur tool to soften areas.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Blur tool selected and ready.",
+            "error": "Unable to select Blur tool. Ensure a document is open.",
+            "info": "Selecting Blur tool"
+        },
+        "params": [
+            {
+                "paramName": "strength",
+                "paramType": "number",
+                "paramDescription": "Blur strength from 1 to 100 percent. Default is 50.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Brush_SelectSharpen",
+        "description": "Select the sharpen tool to enhance edge definition.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Sharpen tool selected and ready.",
+            "error": "Unable to select Sharpen tool. Ensure a document is open.",
+            "info": "Selecting Sharpen tool"
+        },
+        "params": [
+            {
+                "paramName": "strength",
+                "paramType": "number",
+                "paramDescription": "Sharpen strength from 1 to 100 percent. Default is 50.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Brush_LoadBrushPreset",
+        "description": "Load a brush preset from the brush library.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Brush preset loaded.",
+            "error": "Unable to load brush preset. The preset may not exist.",
+            "info": "Loading brush preset"
+        },
+        "params": [
+            {
+                "paramName": "presetName",
+                "paramType": "string",
+                "paramDescription": "Name of the brush preset to load.",
+                "isMandatory": true
+            }
+        ]
+    },
+    {
+        "functionName": "Brush_OpenBrushSettings",
+        "description": "Open the Brush Settings panel for advanced brush customization.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Brush Settings panel opened.",
+            "error": "Unable to open Brush Settings panel.",
+            "info": "Opening Brush Settings panel"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Brush_DefineBrushPreset",
+        "description": "Create a new brush preset from the current selection.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "New brush preset created from selection.",
+            "error": "Unable to create brush preset. Make a selection first.",
+            "info": "Creating brush preset from selection"
+        },
+        "params": [
+            {
+                "paramName": "name",
+                "paramType": "string",
+                "paramDescription": "Name for the new brush preset. Default is 'Custom Brush'.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Brush_IncreaseSize",
+        "description": "Increase the brush size by a step.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Brush size increased.",
+            "error": "Unable to increase brush size. Maximum size reached.",
+            "info": "Increasing brush size"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Brush_DecreaseSize",
+        "description": "Decrease the brush size by a step.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Brush size decreased.",
+            "error": "Unable to decrease brush size. Minimum size reached.",
+            "info": "Decreasing brush size"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Brush_IncreaseHardness",
+        "description": "Increase the brush hardness by 25%.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Brush hardness increased.",
+            "error": "Unable to increase brush hardness. Maximum hardness reached.",
+            "info": "Increasing brush hardness"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Brush_DecreaseHardness",
+        "description": "Decrease the brush hardness by 25%.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Brush hardness decreased.",
+            "error": "Unable to decrease brush hardness. Minimum hardness reached.",
+            "info": "Decreasing brush hardness"
+        },
+        "params": []
+    }
+]

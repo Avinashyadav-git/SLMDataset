@@ -1,0 +1,335 @@
+[
+    {
+        "functionName": "Mask_AddLayerMask",
+        "description": "Add a layer mask to the current layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer mask added successfully.",
+            "error": "Unable to add layer mask. Ensure a document is open and a layer is selected.",
+            "info": "Adding layer mask"
+        },
+        "params": [
+            {
+                "paramName": "revealAll",
+                "paramType": "boolean",
+                "paramDescription": "If true, mask reveals entire layer (white mask). If false, mask hides entire layer (black mask). Default is true.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "fromSelection",
+                "paramType": "boolean",
+                "paramDescription": "Create mask from current selection if one exists. Default is false.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Mask_AddVectorMask",
+        "description": "Add a vector mask to the current layer using paths.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Vector mask added successfully.",
+            "error": "Unable to add vector mask. Ensure a document is open and a layer is selected.",
+            "info": "Adding vector mask"
+        },
+        "params": [
+            {
+                "paramName": "revealAll",
+                "paramType": "boolean",
+                "paramDescription": "If true, mask reveals entire layer. If false, mask hides entire layer. Default is true.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "fromPath",
+                "paramType": "boolean",
+                "paramDescription": "Create mask from current path if one exists. Default is false.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Mask_DeleteLayerMask",
+        "description": "Delete the layer mask from the current layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer mask deleted.",
+            "error": "Unable to delete layer mask. Ensure a layer with a mask is selected.",
+            "info": "Deleting layer mask"
+        },
+        "params": [
+            {
+                "paramName": "apply",
+                "paramType": "boolean",
+                "paramDescription": "Apply mask effects before deleting. If false, discards mask changes. Default is false.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Mask_ApplyLayerMask",
+        "description": "Apply the layer mask permanently to the layer content.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer mask applied permanently.",
+            "error": "Unable to apply layer mask. Ensure a layer with a mask is selected.",
+            "info": "Applying layer mask"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Mask_DisableLayerMask",
+        "description": "Temporarily disable the layer mask without deleting it.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer mask disabled.",
+            "error": "Unable to disable layer mask. Ensure a layer with a mask is selected.",
+            "info": "Disabling layer mask"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Mask_EnableLayerMask",
+        "description": "Re-enable a previously disabled layer mask.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer mask enabled.",
+            "error": "Unable to enable layer mask. Ensure a layer with a disabled mask is selected.",
+            "info": "Enabling layer mask"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Mask_UnlinkLayerMask",
+        "description": "Unlink the layer mask from the layer content so they can be moved independently.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer mask unlinked from layer.",
+            "error": "Unable to unlink layer mask. Ensure a layer with a linked mask is selected.",
+            "info": "Unlinking layer mask"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Mask_LinkLayerMask",
+        "description": "Link the layer mask to the layer content so they move together.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer mask linked to layer.",
+            "error": "Unable to link layer mask. Ensure a layer with an unlinked mask is selected.",
+            "info": "Linking layer mask"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Mask_InvertMask",
+        "description": "Invert the layer mask colors (swap black and white).",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer mask inverted.",
+            "error": "Unable to invert layer mask. Ensure a layer with a mask is selected.",
+            "info": "Inverting layer mask"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Mask_SelectMask",
+        "description": "Load the layer mask as a selection.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Mask loaded as selection.",
+            "error": "Unable to load mask as selection. Ensure a layer with a mask is selected.",
+            "info": "Loading mask as selection"
+        },
+        "params": [
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "Selection mode. Possible values: NEW, ADD, SUBTRACT, INTERSECT. Default is NEW.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Mask_RefineEdge",
+        "description": "Open Refine Mask dialog to improve mask edges.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Refine Mask dialog is open. Adjust settings and click OK.",
+            "error": "Unable to open Refine Mask. Ensure a layer with a mask is selected.",
+            "info": "Opening Refine Mask dialog"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Mask_FeatherMask",
+        "description": "Add feathering to soften mask edges.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Mask edges feathered successfully.",
+            "error": "Unable to feather mask. Ensure a layer with a mask is selected.",
+            "info": "Feathering mask edges"
+        },
+        "params": [
+            {
+                "paramName": "radius",
+                "paramType": "number",
+                "paramDescription": "Feather radius in pixels from 0.1 to 250. Default is 5.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Mask_MaskDensity",
+        "description": "Adjust the density (opacity) of the mask effect.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Mask density adjusted successfully.",
+            "error": "Unable to adjust mask density. Ensure a layer with a mask is selected.",
+            "info": "Adjusting mask density"
+        },
+        "params": [
+            {
+                "paramName": "density",
+                "paramType": "number",
+                "paramDescription": "Mask density from 0 to 100 percent. Default is 100.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Mask_AddClippingMask",
+        "description": "Create a clipping mask using the layer below as a mask shape.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Clipping mask created successfully.",
+            "error": "Unable to create clipping mask. Ensure there is a layer below the current layer.",
+            "info": "Creating clipping mask"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Mask_ReleaseClippingMask",
+        "description": "Release the current layer from its clipping mask.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Clipping mask released.",
+            "error": "Unable to release clipping mask. Ensure the layer is part of a clipping mask.",
+            "info": "Releasing clipping mask"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Mask_SelectAndMask",
+        "description": "Open the Select and Mask workspace for advanced mask editing.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Select and Mask workspace is open. Refine your mask and click OK.",
+            "error": "Unable to open Select and Mask. Ensure a document is open.",
+            "info": "Opening Select and Mask workspace"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Mask_FillMask",
+        "description": "Fill the layer mask with a solid color.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Mask filled successfully.",
+            "error": "Unable to fill mask. Ensure a layer with a mask is selected and the mask is active.",
+            "info": "Filling layer mask"
+        },
+        "params": [
+            {
+                "paramName": "color",
+                "paramType": "string",
+                "paramDescription": "Fill color. Possible values: WHITE, BLACK. White reveals, black conceals. Default is WHITE.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Mask_PaintOnMask",
+        "description": "Select the layer mask for painting with brush tools.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer mask selected for painting. Use black to hide, white to reveal.",
+            "error": "Unable to select mask for painting. Ensure a layer with a mask is selected.",
+            "info": "Selecting mask for painting"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Mask_ViewMask",
+        "description": "Toggle visibility of the layer mask as a red overlay or grayscale view.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Mask view mode toggled.",
+            "error": "Unable to toggle mask view. Ensure a layer with a mask is selected.",
+            "info": "Toggling mask view"
+        },
+        "params": [
+            {
+                "paramName": "viewMode",
+                "paramType": "string",
+                "paramDescription": "View mode. Possible values: NORMAL, OVERLAY, GRAYSCALE. Default is OVERLAY.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Mask_MaskFromColor",
+        "description": "Create a layer mask based on a color range in the image.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Mask created from color range.",
+            "error": "Unable to create mask from color. Ensure a document is open.",
+            "info": "Creating mask from color range"
+        },
+        "params": [
+            {
+                "paramName": "colorRed",
+                "paramType": "number",
+                "paramDescription": "Red component of target color (0-255). Default is 255.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorGreen",
+                "paramType": "number",
+                "paramDescription": "Green component of target color (0-255). Default is 255.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorBlue",
+                "paramType": "number",
+                "paramDescription": "Blue component of target color (0-255). Default is 255.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "fuzziness",
+                "paramType": "number",
+                "paramDescription": "Color tolerance from 0 to 200. Default is 40.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Mask_MaskFromLuminosity",
+        "description": "Create a layer mask based on the luminosity values of the image.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Luminosity mask created.",
+            "error": "Unable to create luminosity mask. Ensure a document is open.",
+            "info": "Creating luminosity mask"
+        },
+        "params": [
+            {
+                "paramName": "type",
+                "paramType": "string",
+                "paramDescription": "Luminosity range to mask. Possible values: LIGHTS, MIDTONES, DARKS. Default is LIGHTS.",
+                "isMandatory": false
+            }
+        ]
+    }
+]

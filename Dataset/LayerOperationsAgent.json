@@ -1,0 +1,434 @@
+[
+    {
+        "functionName": "Layer_New",
+        "description": "Create a new empty layer in the document.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "New layer created successfully.",
+            "error": "Unable to create new layer. Ensure a document is open.",
+            "info": "Creating new layer"
+        },
+        "params": [
+            {
+                "paramName": "name",
+                "paramType": "string",
+                "paramDescription": "Name for the new layer. Default is auto-generated.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "opacity",
+                "paramType": "number",
+                "paramDescription": "Layer opacity from 0 to 100. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "blendMode",
+                "paramType": "string",
+                "paramDescription": "Blending mode. Possible values: NORMAL, DISSOLVE, DARKEN, MULTIPLY, COLOR_BURN, LINEAR_BURN, LIGHTEN, SCREEN, COLOR_DODGE, LINEAR_DODGE, OVERLAY, SOFT_LIGHT, HARD_LIGHT, VIVID_LIGHT, LINEAR_LIGHT, PIN_LIGHT, DIFFERENCE, EXCLUSION, HUE, SATURATION, COLOR, LUMINOSITY. Default is NORMAL.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "fillWithNeutralColor",
+                "paramType": "boolean",
+                "paramDescription": "Fill with neutral color for the blend mode. Default is false.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Layer_Duplicate",
+        "description": "Duplicate the current layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer duplicated successfully.",
+            "error": "Unable to duplicate layer. Ensure a layer is selected.",
+            "info": "Duplicating layer"
+        },
+        "params": [
+            {
+                "paramName": "name",
+                "paramType": "string",
+                "paramDescription": "Name for the duplicated layer. Default is original name with 'copy' suffix.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Layer_Delete",
+        "description": "Delete the current layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer deleted.",
+            "error": "Unable to delete layer. Cannot delete the only layer in the document.",
+            "info": "Deleting layer"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_Rename",
+        "description": "Rename the current layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer renamed successfully.",
+            "error": "Unable to rename layer. Ensure a layer is selected.",
+            "info": "Renaming layer"
+        },
+        "params": [
+            {
+                "paramName": "name",
+                "paramType": "string",
+                "paramDescription": "New name for the layer.",
+                "isMandatory": true
+            }
+        ]
+    },
+    {
+        "functionName": "Layer_SetOpacity",
+        "description": "Set the opacity of the current layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer opacity set successfully.",
+            "error": "Unable to set layer opacity. Ensure a layer is selected.",
+            "info": "Setting layer opacity"
+        },
+        "params": [
+            {
+                "paramName": "opacity",
+                "paramType": "number",
+                "paramDescription": "Opacity percentage from 0 to 100. Default is 100.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Layer_SetFill",
+        "description": "Set the fill opacity of the current layer (affects layer content but not effects).",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer fill set successfully.",
+            "error": "Unable to set layer fill. Ensure a layer is selected.",
+            "info": "Setting layer fill"
+        },
+        "params": [
+            {
+                "paramName": "fill",
+                "paramType": "number",
+                "paramDescription": "Fill percentage from 0 to 100. Default is 100.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Layer_SetBlendMode",
+        "description": "Set the blending mode of the current layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer blend mode set successfully.",
+            "error": "Unable to set blend mode. Ensure a layer is selected.",
+            "info": "Setting layer blend mode"
+        },
+        "params": [
+            {
+                "paramName": "blendMode",
+                "paramType": "string",
+                "paramDescription": "Blending mode. Possible values: NORMAL, DISSOLVE, DARKEN, MULTIPLY, COLOR_BURN, LINEAR_BURN, LIGHTEN, SCREEN, COLOR_DODGE, LINEAR_DODGE, OVERLAY, SOFT_LIGHT, HARD_LIGHT, VIVID_LIGHT, LINEAR_LIGHT, PIN_LIGHT, DIFFERENCE, EXCLUSION, HUE, SATURATION, COLOR, LUMINOSITY. Default is NORMAL.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Layer_Hide",
+        "description": "Hide the current layer from view.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer hidden.",
+            "error": "Unable to hide layer. Ensure a layer is selected.",
+            "info": "Hiding layer"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_Show",
+        "description": "Make the current layer visible.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer is now visible.",
+            "error": "Unable to show layer. Ensure a layer is selected.",
+            "info": "Showing layer"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_Lock",
+        "description": "Lock the current layer to prevent changes.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer locked.",
+            "error": "Unable to lock layer. Ensure a layer is selected.",
+            "info": "Locking layer"
+        },
+        "params": [
+            {
+                "paramName": "lockType",
+                "paramType": "string",
+                "paramDescription": "What to lock. Possible values: ALL, TRANSPARENT_PIXELS, IMAGE_PIXELS, POSITION. Default is ALL.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Layer_Unlock",
+        "description": "Unlock the current layer to allow changes.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer unlocked.",
+            "error": "Unable to unlock layer. Ensure a locked layer is selected.",
+            "info": "Unlocking layer"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_MoveUp",
+        "description": "Move the current layer up in the layer stack.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer moved up.",
+            "error": "Unable to move layer up. It may already be at the top.",
+            "info": "Moving layer up"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_MoveDown",
+        "description": "Move the current layer down in the layer stack.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer moved down.",
+            "error": "Unable to move layer down. It may already be at the bottom.",
+            "info": "Moving layer down"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_MoveToTop",
+        "description": "Move the current layer to the top of the layer stack.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer moved to top.",
+            "error": "Unable to move layer to top. Ensure a layer is selected.",
+            "info": "Moving layer to top"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_MoveToBottom",
+        "description": "Move the current layer to the bottom of the layer stack.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer moved to bottom.",
+            "error": "Unable to move layer to bottom. Ensure a layer is selected.",
+            "info": "Moving layer to bottom"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_Merge",
+        "description": "Merge the current layer with the layer below.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layers merged successfully.",
+            "error": "Unable to merge layers. Ensure there is a layer below to merge with.",
+            "info": "Merging layer down"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_MergeVisible",
+        "description": "Merge all visible layers into one.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Visible layers merged successfully.",
+            "error": "Unable to merge visible layers. Ensure there are visible layers to merge.",
+            "info": "Merging visible layers"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_FlattenImage",
+        "description": "Flatten all layers into a single background layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Image flattened successfully.",
+            "error": "Unable to flatten image. Ensure a document is open.",
+            "info": "Flattening image"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_Group",
+        "description": "Create a group from selected layers.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer group created.",
+            "error": "Unable to create layer group. Select layers to group.",
+            "info": "Creating layer group"
+        },
+        "params": [
+            {
+                "paramName": "name",
+                "paramType": "string",
+                "paramDescription": "Name for the group. Default is 'Group'.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Layer_Ungroup",
+        "description": "Ungroup the selected layer group.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer group ungrouped.",
+            "error": "Unable to ungroup. Select a layer group first.",
+            "info": "Ungrouping layers"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_LinkLayers",
+        "description": "Link selected layers so they move together.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layers linked successfully.",
+            "error": "Unable to link layers. Select multiple layers to link.",
+            "info": "Linking layers"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_UnlinkLayers",
+        "description": "Unlink the selected linked layers.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layers unlinked.",
+            "error": "Unable to unlink layers. Select linked layers first.",
+            "info": "Unlinking layers"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_SelectAll",
+        "description": "Select all layers in the document.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "All layers selected.",
+            "error": "Unable to select all layers. Ensure a document is open.",
+            "info": "Selecting all layers"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_DeselectAll",
+        "description": "Deselect all layers.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "All layers deselected.",
+            "error": "Unable to deselect layers.",
+            "info": "Deselecting all layers"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_SelectByName",
+        "description": "Select a layer by its name.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer selected.",
+            "error": "Unable to find layer with the specified name.",
+            "info": "Selecting layer by name"
+        },
+        "params": [
+            {
+                "paramName": "name",
+                "paramType": "string",
+                "paramDescription": "Name of the layer to select.",
+                "isMandatory": true
+            }
+        ]
+    },
+    {
+        "functionName": "Layer_RasterizeLayer",
+        "description": "Rasterize the current layer (convert vector/smart object to pixels).",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer rasterized successfully.",
+            "error": "Unable to rasterize layer. The layer may already be rasterized.",
+            "info": "Rasterizing layer"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_ConvertToSmartObject",
+        "description": "Convert the current layer to a Smart Object.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer converted to Smart Object.",
+            "error": "Unable to convert to Smart Object. Ensure a layer is selected.",
+            "info": "Converting to Smart Object"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Layer_NewAdjustmentLayer",
+        "description": "Create a new adjustment layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Adjustment layer created.",
+            "error": "Unable to create adjustment layer. Ensure a document is open.",
+            "info": "Creating adjustment layer"
+        },
+        "params": [
+            {
+                "paramName": "type",
+                "paramType": "string",
+                "paramDescription": "Type of adjustment layer. Possible values: BRIGHTNESS_CONTRAST, LEVELS, CURVES, EXPOSURE, VIBRANCE, HUE_SATURATION, COLOR_BALANCE, BLACK_AND_WHITE, PHOTO_FILTER, CHANNEL_MIXER, COLOR_LOOKUP, INVERT, POSTERIZE, THRESHOLD, GRADIENT_MAP, SELECTIVE_COLOR. Default is BRIGHTNESS_CONTRAST.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Layer_NewFillLayer",
+        "description": "Create a new fill layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Fill layer created.",
+            "error": "Unable to create fill layer. Ensure a document is open.",
+            "info": "Creating fill layer"
+        },
+        "params": [
+            {
+                "paramName": "type",
+                "paramType": "string",
+                "paramDescription": "Type of fill layer. Possible values: SOLID_COLOR, GRADIENT, PATTERN. Default is SOLID_COLOR.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorRed",
+                "paramType": "number",
+                "paramDescription": "Red component for solid color (0-255). Default is 128.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorGreen",
+                "paramType": "number",
+                "paramDescription": "Green component for solid color (0-255). Default is 128.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorBlue",
+                "paramType": "number",
+                "paramDescription": "Blue component for solid color (0-255). Default is 128.",
+                "isMandatory": false
+            }
+        ]
+    }
+]

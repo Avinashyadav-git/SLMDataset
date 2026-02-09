@@ -1,0 +1,403 @@
+[
+    {
+        "functionName": "Adjustment_Brightness",
+        "description": "Adjust the brightness level of the current image or selected layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Brightness adjusted successfully.",
+            "error": "Unable to adjust brightness. Ensure a document is open and try again.",
+            "info": "Adjusting image brightness"
+        },
+        "params": [
+            {
+                "paramName": "brightness",
+                "paramType": "number",
+                "paramDescription": "Brightness level from -100 to 100. Positive values increase brightness, negative values decrease it. Default is 0.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Adjustment_Contrast",
+        "description": "Adjust the contrast level of the current image or selected layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Contrast adjusted successfully.",
+            "error": "Unable to adjust contrast. Ensure a document is open and try again.",
+            "info": "Adjusting image contrast"
+        },
+        "params": [
+            {
+                "paramName": "contrast",
+                "paramType": "number",
+                "paramDescription": "Contrast level from -100 to 100. Positive values increase contrast, negative values decrease it. Default is 0.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Adjustment_Saturation",
+        "description": "Adjust the color saturation of the current image or selected layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Saturation adjusted successfully.",
+            "error": "Unable to adjust saturation. Ensure a document is open and try again.",
+            "info": "Adjusting color saturation"
+        },
+        "params": [
+            {
+                "paramName": "saturation",
+                "paramType": "number",
+                "paramDescription": "Saturation level from -100 to 100. Positive values increase saturation, negative values decrease it. -100 converts to grayscale. Default is 0.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Adjustment_Hue",
+        "description": "Shift the hue of colors in the current image or selected layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Hue adjusted successfully.",
+            "error": "Unable to adjust hue. Ensure a document is open and try again.",
+            "info": "Shifting color hue"
+        },
+        "params": [
+            {
+                "paramName": "hue",
+                "paramType": "number",
+                "paramDescription": "Hue shift in degrees from -180 to 180. Default is 0.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Adjustment_Exposure",
+        "description": "Adjust the exposure of the current image simulating camera exposure settings.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Exposure adjusted successfully.",
+            "error": "Unable to adjust exposure. Ensure a document is open and try again.",
+            "info": "Adjusting image exposure"
+        },
+        "params": [
+            {
+                "paramName": "exposure",
+                "paramType": "number",
+                "paramDescription": "Exposure value from -5 to 5 stops. Positive values brighten, negative values darken. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "offset",
+                "paramType": "number",
+                "paramDescription": "Offset for shadows from -0.5 to 0.5. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "gamma",
+                "paramType": "number",
+                "paramDescription": "Gamma correction from 0.01 to 9.99. Default is 1.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Adjustment_Vibrance",
+        "description": "Adjust the vibrance of colors, boosting muted colors more than already saturated ones.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Vibrance adjusted successfully.",
+            "error": "Unable to adjust vibrance. Ensure a document is open and try again.",
+            "info": "Adjusting color vibrance"
+        },
+        "params": [
+            {
+                "paramName": "vibrance",
+                "paramType": "number",
+                "paramDescription": "Vibrance level from -100 to 100. Default is 0.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Adjustment_Temperature",
+        "description": "Adjust the color temperature of the image to make it warmer or cooler.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Color temperature adjusted successfully.",
+            "error": "Unable to adjust color temperature. Ensure a document is open and try again.",
+            "info": "Adjusting color temperature"
+        },
+        "params": [
+            {
+                "paramName": "temperature",
+                "paramType": "number",
+                "paramDescription": "Temperature value from -100 (cooler/blue) to 100 (warmer/orange). Default is 0.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Adjustment_Tint",
+        "description": "Adjust the tint of the image along the green-magenta axis.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Tint adjusted successfully.",
+            "error": "Unable to adjust tint. Ensure a document is open and try again.",
+            "info": "Adjusting image tint"
+        },
+        "params": [
+            {
+                "paramName": "tint",
+                "paramType": "number",
+                "paramDescription": "Tint value from -100 (green) to 100 (magenta). Default is 0.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Adjustment_Highlights",
+        "description": "Adjust the brightness of highlight areas in the image.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Highlights adjusted successfully.",
+            "error": "Unable to adjust highlights. Ensure a document is open and try again.",
+            "info": "Adjusting highlight tones"
+        },
+        "params": [
+            {
+                "paramName": "highlights",
+                "paramType": "number",
+                "paramDescription": "Highlights adjustment from -100 to 100. Negative values recover highlight detail. Default is 0.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Adjustment_Shadows",
+        "description": "Adjust the brightness of shadow areas in the image.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Shadows adjusted successfully.",
+            "error": "Unable to adjust shadows. Ensure a document is open and try again.",
+            "info": "Adjusting shadow tones"
+        },
+        "params": [
+            {
+                "paramName": "shadows",
+                "paramType": "number",
+                "paramDescription": "Shadows adjustment from -100 to 100. Positive values brighten shadows. Default is 0.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Adjustment_Whites",
+        "description": "Adjust the white point of the image.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Whites adjusted successfully.",
+            "error": "Unable to adjust whites. Ensure a document is open and try again.",
+            "info": "Adjusting white point"
+        },
+        "params": [
+            {
+                "paramName": "whites",
+                "paramType": "number",
+                "paramDescription": "Whites adjustment from -100 to 100. Default is 0.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Adjustment_Blacks",
+        "description": "Adjust the black point of the image.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Blacks adjusted successfully.",
+            "error": "Unable to adjust blacks. Ensure a document is open and try again.",
+            "info": "Adjusting black point"
+        },
+        "params": [
+            {
+                "paramName": "blacks",
+                "paramType": "number",
+                "paramDescription": "Blacks adjustment from -100 to 100. Negative values deepen blacks. Default is 0.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Adjustment_Clarity",
+        "description": "Adjust mid-tone contrast to add depth and clarity to the image.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Clarity adjusted successfully.",
+            "error": "Unable to adjust clarity. Ensure a document is open and try again.",
+            "info": "Adjusting image clarity"
+        },
+        "params": [
+            {
+                "paramName": "clarity",
+                "paramType": "number",
+                "paramDescription": "Clarity level from -100 to 100. Positive values increase mid-tone contrast. Default is 0.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Adjustment_Curves",
+        "description": "Open the Curves adjustment dialog for precise tonal control.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Curves adjustment dialog is open. Adjust the curve and click OK to apply.",
+            "error": "Unable to open Curves adjustment. Ensure a document is open and try again.",
+            "info": "Opening Curves adjustment dialog"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Adjustment_Levels",
+        "description": "Open the Levels adjustment dialog to adjust tonal range using histogram.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Levels adjustment dialog is open. Adjust the levels and click OK to apply.",
+            "error": "Unable to open Levels adjustment. Ensure a document is open and try again.",
+            "info": "Opening Levels adjustment dialog"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Adjustment_ColorBalance",
+        "description": "Adjust the color balance of the image across shadows, midtones, and highlights.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Color balance adjusted successfully.",
+            "error": "Unable to adjust color balance. Ensure a document is open and try again.",
+            "info": "Adjusting color balance"
+        },
+        "params": [
+            {
+                "paramName": "cyanRed",
+                "paramType": "number",
+                "paramDescription": "Cyan-Red balance from -100 to 100. Negative is cyan, positive is red. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "magentaGreen",
+                "paramType": "number",
+                "paramDescription": "Magenta-Green balance from -100 to 100. Negative is magenta, positive is green. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "yellowBlue",
+                "paramType": "number",
+                "paramDescription": "Yellow-Blue balance from -100 to 100. Negative is yellow, positive is blue. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "toneRange",
+                "paramType": "string",
+                "paramDescription": "Tone range to adjust. Possible values: SHADOWS, MIDTONES, HIGHLIGHTS. Default is MIDTONES.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Adjustment_Invert",
+        "description": "Invert all colors in the image creating a negative effect.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Colors inverted successfully.",
+            "error": "Unable to invert colors. Ensure a document is open and try again.",
+            "info": "Inverting image colors"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Adjustment_Posterize",
+        "description": "Reduce the number of tonal levels in the image for a poster-like effect.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Posterize effect applied successfully.",
+            "error": "Unable to apply posterize effect. Ensure a document is open and try again.",
+            "info": "Applying posterize effect"
+        },
+        "params": [
+            {
+                "paramName": "levels",
+                "paramType": "number",
+                "paramDescription": "Number of tonal levels from 2 to 255. Lower values create more dramatic effect. Default is 4.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Adjustment_Threshold",
+        "description": "Convert image to high-contrast black and white based on threshold value.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Threshold effect applied successfully.",
+            "error": "Unable to apply threshold effect. Ensure a document is open and try again.",
+            "info": "Applying threshold effect"
+        },
+        "params": [
+            {
+                "paramName": "threshold",
+                "paramType": "number",
+                "paramDescription": "Threshold level from 1 to 255. Pixels darker than threshold become black, lighter become white. Default is 128.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Adjustment_ChannelMixer",
+        "description": "Mix color channels to create custom color effects or convert to grayscale.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Channel mixer applied successfully.",
+            "error": "Unable to apply channel mixer. Ensure a document is open and try again.",
+            "info": "Mixing color channels"
+        },
+        "params": [
+            {
+                "paramName": "outputChannel",
+                "paramType": "string",
+                "paramDescription": "Output channel to modify. Possible values: RED, GREEN, BLUE, GRAY. Default is RED.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "redPercent",
+                "paramType": "number",
+                "paramDescription": "Percentage of red channel contribution from -200 to 200. Default is 100 for red output, 0 for others.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "greenPercent",
+                "paramType": "number",
+                "paramDescription": "Percentage of green channel contribution from -200 to 200. Default is 100 for green output, 0 for others.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "bluePercent",
+                "paramType": "number",
+                "paramDescription": "Percentage of blue channel contribution from -200 to 200. Default is 100 for blue output, 0 for others.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "constant",
+                "paramType": "number",
+                "paramDescription": "Constant value to add from -200 to 200. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "monochrome",
+                "paramType": "boolean",
+                "paramDescription": "Convert to monochrome/grayscale. Default is false.",
+                "isMandatory": false
+            }
+        ]
+    }
+]

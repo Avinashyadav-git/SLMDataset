@@ -1,0 +1,393 @@
+[
+    {
+        "functionName": "Transform_FreeTransform",
+        "description": "Enter free transform mode to scale, rotate, and move the layer or selection.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Free Transform mode activated. Adjust the transform and press Enter to confirm.",
+            "error": "Unable to enter Free Transform mode. Ensure a document is open and there is content to transform.",
+            "info": "Entering Free Transform mode"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Transform_Scale",
+        "description": "Scale the current layer or selection by specified percentage.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer scaled successfully.",
+            "error": "Unable to scale. Ensure a document is open and there is content to scale.",
+            "info": "Scaling layer"
+        },
+        "params": [
+            {
+                "paramName": "scaleX",
+                "paramType": "number",
+                "paramDescription": "Horizontal scale percentage from 1 to 1000. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "scaleY",
+                "paramType": "number",
+                "paramDescription": "Vertical scale percentage from 1 to 1000. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "proportional",
+                "paramType": "boolean",
+                "paramDescription": "Maintain aspect ratio when scaling. Default is true.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "anchorPosition",
+                "paramType": "string",
+                "paramDescription": "Anchor point for scaling. Possible values: TOPLEFT, TOPCENTER, TOPRIGHT, MIDDLELEFT, MIDDLECENTER, MIDDLERIGHT, BOTTOMLEFT, BOTTOMCENTER, BOTTOMRIGHT. Default is MIDDLECENTER.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Transform_Rotate",
+        "description": "Rotate the current layer or selection by specified angle.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer rotated successfully.",
+            "error": "Unable to rotate. Ensure a document is open and there is content to rotate.",
+            "info": "Rotating layer"
+        },
+        "params": [
+            {
+                "paramName": "angle",
+                "paramType": "number",
+                "paramDescription": "Rotation angle in degrees. Positive values rotate clockwise. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "anchorPosition",
+                "paramType": "string",
+                "paramDescription": "Anchor point for rotation. Possible values: TOPLEFT, TOPCENTER, TOPRIGHT, MIDDLELEFT, MIDDLECENTER, MIDDLERIGHT, BOTTOMLEFT, BOTTOMCENTER, BOTTOMRIGHT. Default is MIDDLECENTER.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Transform_Rotate90CW",
+        "description": "Rotate the current layer 90 degrees clockwise.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer rotated 90 degrees clockwise.",
+            "error": "Unable to rotate. Ensure a document is open and there is content to rotate.",
+            "info": "Rotating layer 90 degrees clockwise"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Transform_Rotate90CCW",
+        "description": "Rotate the current layer 90 degrees counter-clockwise.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer rotated 90 degrees counter-clockwise.",
+            "error": "Unable to rotate. Ensure a document is open and there is content to rotate.",
+            "info": "Rotating layer 90 degrees counter-clockwise"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Transform_Rotate180",
+        "description": "Rotate the current layer 180 degrees.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer rotated 180 degrees.",
+            "error": "Unable to rotate. Ensure a document is open and there is content to rotate.",
+            "info": "Rotating layer 180 degrees"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Transform_FlipHorizontal",
+        "description": "Flip the current layer horizontally (mirror).",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer flipped horizontally.",
+            "error": "Unable to flip. Ensure a document is open and there is content to flip.",
+            "info": "Flipping layer horizontally"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Transform_FlipVertical",
+        "description": "Flip the current layer vertically.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer flipped vertically.",
+            "error": "Unable to flip. Ensure a document is open and there is content to flip.",
+            "info": "Flipping layer vertically"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Transform_Skew",
+        "description": "Skew the current layer along horizontal or vertical axis.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer skewed successfully.",
+            "error": "Unable to skew. Ensure a document is open and there is content to skew.",
+            "info": "Skewing layer"
+        },
+        "params": [
+            {
+                "paramName": "horizontal",
+                "paramType": "number",
+                "paramDescription": "Horizontal skew angle in degrees from -45 to 45. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "vertical",
+                "paramType": "number",
+                "paramDescription": "Vertical skew angle in degrees from -45 to 45. Default is 0.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Transform_Distort",
+        "description": "Enter distort mode to freely move corners independently.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Distort mode activated. Drag corners to distort and press Enter to confirm.",
+            "error": "Unable to enter Distort mode. Ensure a document is open and there is content to distort.",
+            "info": "Entering Distort mode"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Transform_Perspective",
+        "description": "Enter perspective transform mode to add perspective to the layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Perspective mode activated. Drag corners to adjust perspective and press Enter to confirm.",
+            "error": "Unable to enter Perspective mode. Ensure a document is open and there is content to transform.",
+            "info": "Entering Perspective mode"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Transform_Warp",
+        "description": "Enter warp mode to bend and reshape the layer using a mesh grid.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Warp mode activated. Drag mesh points to warp and press Enter to confirm.",
+            "error": "Unable to enter Warp mode. Ensure a document is open and there is content to warp.",
+            "info": "Entering Warp mode"
+        },
+        "params": [
+            {
+                "paramName": "warpStyle",
+                "paramType": "string",
+                "paramDescription": "Preset warp style. Possible values: NONE, ARC, ARC_LOWER, ARC_UPPER, ARCH, BULGE, SHELL_LOWER, SHELL_UPPER, FLAG, WAVE, FISH, RISE, FISHEYE, INFLATE, SQUEEZE, TWIST. Default is NONE.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "bend",
+                "paramType": "number",
+                "paramDescription": "Bend amount for preset styles from -100 to 100. Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "horizontalDistortion",
+                "paramType": "number",
+                "paramDescription": "Horizontal distortion from -100 to 100. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "verticalDistortion",
+                "paramType": "number",
+                "paramDescription": "Vertical distortion from -100 to 100. Default is 0.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Transform_ContentAwareScale",
+        "description": "Scale the layer while protecting important content using content-aware algorithms.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Content-Aware Scale mode activated. Resize while protecting important areas and press Enter to confirm.",
+            "error": "Unable to enter Content-Aware Scale mode. Ensure a document is open and there is content to scale.",
+            "info": "Entering Content-Aware Scale mode"
+        },
+        "params": [
+            {
+                "paramName": "protectSkinTones",
+                "paramType": "boolean",
+                "paramDescription": "Automatically protect skin tones during scaling. Default is false.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Transform_PuppetWarp",
+        "description": "Enter Puppet Warp mode to add pins and move parts of the image independently.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Puppet Warp mode activated. Add pins and drag to warp, then press Enter to confirm.",
+            "error": "Unable to enter Puppet Warp mode. Ensure a document is open and there is content to warp.",
+            "info": "Entering Puppet Warp mode"
+        },
+        "params": [
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "Mesh flexibility. Possible values: RIGID, NORMAL, DISTORT. Default is NORMAL.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "density",
+                "paramType": "string",
+                "paramDescription": "Mesh density. Possible values: FEWER_POINTS, NORMAL, MORE_POINTS. Default is NORMAL.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "expansion",
+                "paramType": "number",
+                "paramDescription": "How far mesh extends beyond layer bounds in pixels from 0 to 100. Default is 2.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Transform_Move",
+        "description": "Move the current layer to a new position.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer moved successfully.",
+            "error": "Unable to move layer. Ensure a document is open and there is content to move.",
+            "info": "Moving layer"
+        },
+        "params": [
+            {
+                "paramName": "x",
+                "paramType": "number",
+                "paramDescription": "New X position in pixels. Positive values move right, negative move left.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "y",
+                "paramType": "number",
+                "paramDescription": "New Y position in pixels. Positive values move down, negative move up.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "relative",
+                "paramType": "boolean",
+                "paramDescription": "If true, x and y are relative to current position. If false, they are absolute coordinates. Default is true.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Transform_AlignLeft",
+        "description": "Align selected layers to the left edge.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layers aligned to left.",
+            "error": "Unable to align. Select multiple layers or link layers first.",
+            "info": "Aligning layers to left"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Transform_AlignCenter",
+        "description": "Align selected layers to the horizontal center.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layers aligned to center.",
+            "error": "Unable to align. Select multiple layers or link layers first.",
+            "info": "Aligning layers to center"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Transform_AlignRight",
+        "description": "Align selected layers to the right edge.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layers aligned to right.",
+            "error": "Unable to align. Select multiple layers or link layers first.",
+            "info": "Aligning layers to right"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Transform_AlignTop",
+        "description": "Align selected layers to the top edge.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layers aligned to top.",
+            "error": "Unable to align. Select multiple layers or link layers first.",
+            "info": "Aligning layers to top"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Transform_AlignMiddle",
+        "description": "Align selected layers to the vertical middle.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layers aligned to middle.",
+            "error": "Unable to align. Select multiple layers or link layers first.",
+            "info": "Aligning layers to middle"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Transform_AlignBottom",
+        "description": "Align selected layers to the bottom edge.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layers aligned to bottom.",
+            "error": "Unable to align. Select multiple layers or link layers first.",
+            "info": "Aligning layers to bottom"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Transform_DistributeHorizontally",
+        "description": "Distribute selected layers evenly along horizontal axis.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layers distributed horizontally.",
+            "error": "Unable to distribute. Select at least three layers.",
+            "info": "Distributing layers horizontally"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Transform_DistributeVertically",
+        "description": "Distribute selected layers evenly along vertical axis.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layers distributed vertically.",
+            "error": "Unable to distribute. Select at least three layers.",
+            "info": "Distributing layers vertically"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Transform_CenterOnCanvas",
+        "description": "Center the current layer on the canvas.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer centered on canvas.",
+            "error": "Unable to center layer. Ensure a document is open and there is content to center.",
+            "info": "Centering layer on canvas"
+        },
+        "params": []
+    }
+]

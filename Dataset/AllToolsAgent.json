@@ -1,0 +1,885 @@
+[
+    {
+        "functionName": "Tool_SelectMoveTool",
+        "description": "Select the Move tool to reposition layers and selections.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Move tool selected and active.",
+            "error": "Unable to select Move tool. Ensure a document is open.",
+            "info": "Selecting Move tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectMarqueeTool",
+        "description": "Select the Rectangular Marquee tool for making rectangular selections.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Rectangular Marquee tool selected.",
+            "error": "Unable to select Marquee tool. Ensure a document is open.",
+            "info": "Selecting Rectangular Marquee tool"
+        },
+        "params": [
+            {
+                "paramName": "shape",
+                "paramType": "string",
+                "paramDescription": "Marquee shape. Possible values: RECTANGULAR, ELLIPTICAL, SINGLE_ROW, SINGLE_COLUMN. Default is RECTANGULAR.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectLassoTool",
+        "description": "Select the Lasso tool for freehand selections.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Lasso tool selected.",
+            "error": "Unable to select Lasso tool. Ensure a document is open.",
+            "info": "Selecting Lasso tool"
+        },
+        "params": [
+            {
+                "paramName": "type",
+                "paramType": "string",
+                "paramDescription": "Lasso type. Possible values: FREEHAND, POLYGONAL, MAGNETIC. Default is FREEHAND.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectObjectSelectionTool",
+        "description": "Select the Object Selection tool for AI-powered object detection and selection.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Object Selection tool selected.",
+            "error": "Unable to select Object Selection tool. Ensure a document is open.",
+            "info": "Selecting Object Selection tool"
+        },
+        "params": [
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "Selection mode. Possible values: RECTANGLE, LASSO. Default is RECTANGLE.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectQuickSelectionTool",
+        "description": "Select the Quick Selection tool for painting selections based on color and texture.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Quick Selection tool selected.",
+            "error": "Unable to select Quick Selection tool. Ensure a document is open.",
+            "info": "Selecting Quick Selection tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectMagicWandTool",
+        "description": "Select the Magic Wand tool for selecting areas of similar color.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Magic Wand tool selected.",
+            "error": "Unable to select Magic Wand tool. Ensure a document is open.",
+            "info": "Selecting Magic Wand tool"
+        },
+        "params": [
+            {
+                "paramName": "tolerance",
+                "paramType": "number",
+                "paramDescription": "Color tolerance from 0 to 255. Default is 32.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "contiguous",
+                "paramType": "boolean",
+                "paramDescription": "Select only connected pixels. Default is true.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectCropTool",
+        "description": "Select the Crop tool for cropping and resizing the canvas.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Crop tool selected.",
+            "error": "Unable to select Crop tool. Ensure a document is open.",
+            "info": "Selecting Crop tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectPerspectiveCropTool",
+        "description": "Select the Perspective Crop tool for cropping with perspective correction.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Perspective Crop tool selected.",
+            "error": "Unable to select Perspective Crop tool. Ensure a document is open.",
+            "info": "Selecting Perspective Crop tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectSliceTool",
+        "description": "Select the Slice tool for creating image slices for web export.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Slice tool selected.",
+            "error": "Unable to select Slice tool. Ensure a document is open.",
+            "info": "Selecting Slice tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectFrameTool",
+        "description": "Select the Frame tool for creating placeholder frames for images.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Frame tool selected.",
+            "error": "Unable to select Frame tool. Ensure a document is open.",
+            "info": "Selecting Frame tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectEyedropperTool",
+        "description": "Select the Eyedropper tool for sampling colors from the image.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Eyedropper tool selected.",
+            "error": "Unable to select Eyedropper tool. Ensure a document is open.",
+            "info": "Selecting Eyedropper tool"
+        },
+        "params": [
+            {
+                "paramName": "sampleSize",
+                "paramType": "string",
+                "paramDescription": "Sample size. Possible values: POINT_SAMPLE, 3X3_AVERAGE, 5X5_AVERAGE, 11X11_AVERAGE, 31X31_AVERAGE, 51X51_AVERAGE, 101X101_AVERAGE. Default is POINT_SAMPLE.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectColorSamplerTool",
+        "description": "Select the Color Sampler tool for placing color sample points.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Color Sampler tool selected.",
+            "error": "Unable to select Color Sampler tool. Ensure a document is open.",
+            "info": "Selecting Color Sampler tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectRulerTool",
+        "description": "Select the Ruler tool for measuring distances and angles.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Ruler tool selected.",
+            "error": "Unable to select Ruler tool. Ensure a document is open.",
+            "info": "Selecting Ruler tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectNoteTool",
+        "description": "Select the Note tool for adding annotations to the document.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Note tool selected.",
+            "error": "Unable to select Note tool. Ensure a document is open.",
+            "info": "Selecting Note tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectCountTool",
+        "description": "Select the Count tool for counting objects in the image.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Count tool selected.",
+            "error": "Unable to select Count tool. Ensure a document is open.",
+            "info": "Selecting Count tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectSpotHealingBrushTool",
+        "description": "Select the Spot Healing Brush tool for quick blemish removal.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Spot Healing Brush tool selected.",
+            "error": "Unable to select Spot Healing Brush tool. Ensure a document is open.",
+            "info": "Selecting Spot Healing Brush tool"
+        },
+        "params": [
+            {
+                "paramName": "type",
+                "paramType": "string",
+                "paramDescription": "Healing type. Possible values: CONTENT_AWARE, CREATE_TEXTURE, PROXIMITY_MATCH. Default is CONTENT_AWARE.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectHealingBrushTool",
+        "description": "Select the Healing Brush tool for texture-aware repairs.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Healing Brush tool selected. Alt/Option+click to set source.",
+            "error": "Unable to select Healing Brush tool. Ensure a document is open.",
+            "info": "Selecting Healing Brush tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectPatchTool",
+        "description": "Select the Patch tool for repairing larger areas.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Patch tool selected.",
+            "error": "Unable to select Patch tool. Ensure a document is open.",
+            "info": "Selecting Patch tool"
+        },
+        "params": [
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "Patch mode. Possible values: NORMAL, CONTENT_AWARE. Default is NORMAL.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectContentAwareMoveTool",
+        "description": "Select the Content-Aware Move tool for moving and extending objects.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Content-Aware Move tool selected.",
+            "error": "Unable to select Content-Aware Move tool. Ensure a document is open.",
+            "info": "Selecting Content-Aware Move tool"
+        },
+        "params": [
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "Mode. Possible values: MOVE, EXTEND. Default is MOVE.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectRedEyeTool",
+        "description": "Select the Red Eye tool for removing red eye from photos.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Red Eye tool selected.",
+            "error": "Unable to select Red Eye tool. Ensure a document is open.",
+            "info": "Selecting Red Eye tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectBrushTool",
+        "description": "Select the Brush tool for painting.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Brush tool selected.",
+            "error": "Unable to select Brush tool. Ensure a document is open.",
+            "info": "Selecting Brush tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectPencilTool",
+        "description": "Select the Pencil tool for hard-edged painting.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Pencil tool selected.",
+            "error": "Unable to select Pencil tool. Ensure a document is open.",
+            "info": "Selecting Pencil tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectColorReplacementTool",
+        "description": "Select the Color Replacement tool for replacing colors while preserving texture.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Color Replacement tool selected.",
+            "error": "Unable to select Color Replacement tool. Ensure a document is open.",
+            "info": "Selecting Color Replacement tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectMixerBrushTool",
+        "description": "Select the Mixer Brush tool for realistic paint mixing.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Mixer Brush tool selected.",
+            "error": "Unable to select Mixer Brush tool. Ensure a document is open.",
+            "info": "Selecting Mixer Brush tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectCloneStampTool",
+        "description": "Select the Clone Stamp tool for duplicating image areas.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Clone Stamp tool selected. Alt/Option+click to set source.",
+            "error": "Unable to select Clone Stamp tool. Ensure a document is open.",
+            "info": "Selecting Clone Stamp tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectPatternStampTool",
+        "description": "Select the Pattern Stamp tool for painting with patterns.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Pattern Stamp tool selected.",
+            "error": "Unable to select Pattern Stamp tool. Ensure a document is open.",
+            "info": "Selecting Pattern Stamp tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectHistoryBrushTool",
+        "description": "Select the History Brush tool for painting from history states.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "History Brush tool selected.",
+            "error": "Unable to select History Brush tool. Ensure a document is open.",
+            "info": "Selecting History Brush tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectArtHistoryBrushTool",
+        "description": "Select the Art History Brush tool for stylized painting from history.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Art History Brush tool selected.",
+            "error": "Unable to select Art History Brush tool. Ensure a document is open.",
+            "info": "Selecting Art History Brush tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectEraserTool",
+        "description": "Select the Eraser tool for erasing pixels.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Eraser tool selected.",
+            "error": "Unable to select Eraser tool. Ensure a document is open.",
+            "info": "Selecting Eraser tool"
+        },
+        "params": [
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "Eraser mode. Possible values: BRUSH, PENCIL, BLOCK. Default is BRUSH.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectBackgroundEraserTool",
+        "description": "Select the Background Eraser tool for erasing backgrounds to transparency.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Background Eraser tool selected.",
+            "error": "Unable to select Background Eraser tool. Ensure a document is open.",
+            "info": "Selecting Background Eraser tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectMagicEraserTool",
+        "description": "Select the Magic Eraser tool for erasing similar colored areas.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Magic Eraser tool selected.",
+            "error": "Unable to select Magic Eraser tool. Ensure a document is open.",
+            "info": "Selecting Magic Eraser tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectGradientTool",
+        "description": "Select the Gradient tool for creating gradient fills.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Gradient tool selected.",
+            "error": "Unable to select Gradient tool. Ensure a document is open.",
+            "info": "Selecting Gradient tool"
+        },
+        "params": [
+            {
+                "paramName": "style",
+                "paramType": "string",
+                "paramDescription": "Gradient style. Possible values: LINEAR, RADIAL, ANGLE, REFLECTED, DIAMOND. Default is LINEAR.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectPaintBucketTool",
+        "description": "Select the Paint Bucket tool for filling areas with color or pattern.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Paint Bucket tool selected.",
+            "error": "Unable to select Paint Bucket tool. Ensure a document is open.",
+            "info": "Selecting Paint Bucket tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_Select3DMaterialDropTool",
+        "description": "Select the 3D Material Drop tool for applying materials to 3D objects.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "3D Material Drop tool selected.",
+            "error": "Unable to select 3D Material Drop tool. Ensure a document is open.",
+            "info": "Selecting 3D Material Drop tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectBlurTool",
+        "description": "Select the Blur tool for softening areas by painting.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Blur tool selected.",
+            "error": "Unable to select Blur tool. Ensure a document is open.",
+            "info": "Selecting Blur tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectSharpenTool",
+        "description": "Select the Sharpen tool for sharpening areas by painting.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Sharpen tool selected.",
+            "error": "Unable to select Sharpen tool. Ensure a document is open.",
+            "info": "Selecting Sharpen tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectSmudgeTool",
+        "description": "Select the Smudge tool for blending colors by painting.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Smudge tool selected.",
+            "error": "Unable to select Smudge tool. Ensure a document is open.",
+            "info": "Selecting Smudge tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectDodgeTool",
+        "description": "Select the Dodge tool for lightening areas by painting.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Dodge tool selected.",
+            "error": "Unable to select Dodge tool. Ensure a document is open.",
+            "info": "Selecting Dodge tool"
+        },
+        "params": [
+            {
+                "paramName": "range",
+                "paramType": "string",
+                "paramDescription": "Tonal range. Possible values: SHADOWS, MIDTONES, HIGHLIGHTS. Default is MIDTONES.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectBurnTool",
+        "description": "Select the Burn tool for darkening areas by painting.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Burn tool selected.",
+            "error": "Unable to select Burn tool. Ensure a document is open.",
+            "info": "Selecting Burn tool"
+        },
+        "params": [
+            {
+                "paramName": "range",
+                "paramType": "string",
+                "paramDescription": "Tonal range. Possible values: SHADOWS, MIDTONES, HIGHLIGHTS. Default is MIDTONES.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectSpongeTool",
+        "description": "Select the Sponge tool for saturating or desaturating colors by painting.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Sponge tool selected.",
+            "error": "Unable to select Sponge tool. Ensure a document is open.",
+            "info": "Selecting Sponge tool"
+        },
+        "params": [
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "Mode. Possible values: SATURATE, DESATURATE. Default is SATURATE.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectPenTool",
+        "description": "Select the Pen tool for creating precise paths.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Pen tool selected.",
+            "error": "Unable to select Pen tool. Ensure a document is open.",
+            "info": "Selecting Pen tool"
+        },
+        "params": [
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "Pen mode. Possible values: PATH, SHAPE. Default is PATH.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectFreeformPenTool",
+        "description": "Select the Freeform Pen tool for drawing paths freehand.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Freeform Pen tool selected.",
+            "error": "Unable to select Freeform Pen tool. Ensure a document is open.",
+            "info": "Selecting Freeform Pen tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectCurvaturePenTool",
+        "description": "Select the Curvature Pen tool for drawing smooth curves easily.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Curvature Pen tool selected.",
+            "error": "Unable to select Curvature Pen tool. Ensure a document is open.",
+            "info": "Selecting Curvature Pen tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectAddAnchorPointTool",
+        "description": "Select the Add Anchor Point tool for adding points to paths.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Add Anchor Point tool selected.",
+            "error": "Unable to select Add Anchor Point tool. Ensure a document is open.",
+            "info": "Selecting Add Anchor Point tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectDeleteAnchorPointTool",
+        "description": "Select the Delete Anchor Point tool for removing points from paths.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Delete Anchor Point tool selected.",
+            "error": "Unable to select Delete Anchor Point tool. Ensure a document is open.",
+            "info": "Selecting Delete Anchor Point tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectConvertPointTool",
+        "description": "Select the Convert Point tool for changing anchor point types.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Convert Point tool selected.",
+            "error": "Unable to select Convert Point tool. Ensure a document is open.",
+            "info": "Selecting Convert Point tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectHorizontalTypeTool",
+        "description": "Select the Horizontal Type tool for adding horizontal text.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Horizontal Type tool selected.",
+            "error": "Unable to select Horizontal Type tool. Ensure a document is open.",
+            "info": "Selecting Horizontal Type tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectVerticalTypeTool",
+        "description": "Select the Vertical Type tool for adding vertical text.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Vertical Type tool selected.",
+            "error": "Unable to select Vertical Type tool. Ensure a document is open.",
+            "info": "Selecting Vertical Type tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectHorizontalTypeMaskTool",
+        "description": "Select the Horizontal Type Mask tool for creating text-shaped selections.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Horizontal Type Mask tool selected.",
+            "error": "Unable to select Horizontal Type Mask tool. Ensure a document is open.",
+            "info": "Selecting Horizontal Type Mask tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectVerticalTypeMaskTool",
+        "description": "Select the Vertical Type Mask tool for creating vertical text-shaped selections.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Vertical Type Mask tool selected.",
+            "error": "Unable to select Vertical Type Mask tool. Ensure a document is open.",
+            "info": "Selecting Vertical Type Mask tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectPathSelectionTool",
+        "description": "Select the Path Selection tool for selecting and moving entire paths.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Path Selection tool selected.",
+            "error": "Unable to select Path Selection tool. Ensure a document is open.",
+            "info": "Selecting Path Selection tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectDirectSelectionTool",
+        "description": "Select the Direct Selection tool for selecting and editing path anchor points.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Direct Selection tool selected.",
+            "error": "Unable to select Direct Selection tool. Ensure a document is open.",
+            "info": "Selecting Direct Selection tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectRectangleTool",
+        "description": "Select the Rectangle tool for drawing rectangles.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Rectangle tool selected.",
+            "error": "Unable to select Rectangle tool. Ensure a document is open.",
+            "info": "Selecting Rectangle tool"
+        },
+        "params": [
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "Drawing mode. Possible values: SHAPE, PATH, PIXELS. Default is SHAPE.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectRoundedRectangleTool",
+        "description": "Select the Rounded Rectangle tool for drawing rounded rectangles.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Rounded Rectangle tool selected.",
+            "error": "Unable to select Rounded Rectangle tool. Ensure a document is open.",
+            "info": "Selecting Rounded Rectangle tool"
+        },
+        "params": [
+            {
+                "paramName": "radius",
+                "paramType": "number",
+                "paramDescription": "Corner radius in pixels. Default is 10.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectEllipseTool",
+        "description": "Select the Ellipse tool for drawing ellipses and circles.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Ellipse tool selected.",
+            "error": "Unable to select Ellipse tool. Ensure a document is open.",
+            "info": "Selecting Ellipse tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectPolygonTool",
+        "description": "Select the Polygon tool for drawing regular polygons.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Polygon tool selected.",
+            "error": "Unable to select Polygon tool. Ensure a document is open.",
+            "info": "Selecting Polygon tool"
+        },
+        "params": [
+            {
+                "paramName": "sides",
+                "paramType": "number",
+                "paramDescription": "Number of sides from 3 to 100. Default is 5.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectLineTool",
+        "description": "Select the Line tool for drawing straight lines.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Line tool selected.",
+            "error": "Unable to select Line tool. Ensure a document is open.",
+            "info": "Selecting Line tool"
+        },
+        "params": [
+            {
+                "paramName": "weight",
+                "paramType": "number",
+                "paramDescription": "Line weight in pixels. Default is 1.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectCustomShapeTool",
+        "description": "Select the Custom Shape tool for drawing preset shapes.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Custom Shape tool selected.",
+            "error": "Unable to select Custom Shape tool. Ensure a document is open.",
+            "info": "Selecting Custom Shape tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectHandTool",
+        "description": "Select the Hand tool for panning the canvas view.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Hand tool selected.",
+            "error": "Unable to select Hand tool. Ensure a document is open.",
+            "info": "Selecting Hand tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectRotateViewTool",
+        "description": "Select the Rotate View tool for rotating the canvas view non-destructively.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Rotate View tool selected.",
+            "error": "Unable to select Rotate View tool. Ensure a document is open.",
+            "info": "Selecting Rotate View tool"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectZoomTool",
+        "description": "Select the Zoom tool for zooming in and out of the canvas.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Zoom tool selected.",
+            "error": "Unable to select Zoom tool. Ensure a document is open.",
+            "info": "Selecting Zoom tool"
+        },
+        "params": [
+            {
+                "paramName": "zoomIn",
+                "paramType": "boolean",
+                "paramDescription": "If true, zoom in mode. If false, zoom out mode. Default is true.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Tool_SelectRemoveTool",
+        "description": "Select the Remove tool for AI-powered object removal.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Remove tool selected.",
+            "error": "Unable to select Remove tool. Ensure a document is open.",
+            "info": "Selecting Remove tool"
+        },
+        "params": [],
+        "undoable": false
+    }
+]

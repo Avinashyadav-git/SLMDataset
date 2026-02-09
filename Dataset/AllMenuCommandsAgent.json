@@ -1,0 +1,1274 @@
+[
+    {
+        "functionName": "Menu_File_New",
+        "description": "Create a new document with specified settings.",
+        "userMessage": {
+            "success": "New document created.",
+            "error": "Unable to create new document.",
+            "info": "Creating new document"
+        },
+        "params": [
+            {
+                "paramName": "width",
+                "paramType": "number",
+                "paramDescription": "Document width in pixels. Default is 1920.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "height",
+                "paramType": "number",
+                "paramDescription": "Document height in pixels. Default is 1080.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "resolution",
+                "paramType": "number",
+                "paramDescription": "Resolution in PPI. Default is 72.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorMode",
+                "paramType": "string",
+                "paramDescription": "Color mode. Possible values: RGB, CMYK, GRAYSCALE, BITMAP, LAB. Default is RGB.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "background",
+                "paramType": "string",
+                "paramDescription": "Background contents. Possible values: WHITE, BLACK, TRANSPARENT, BACKGROUND_COLOR. Default is WHITE.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_File_Open",
+        "description": "Open an existing document from the file system.",
+        "userMessage": {
+            "success": "Document opened successfully.",
+            "error": "Unable to open document. The file may be corrupted or inaccessible.",
+            "info": "Opening document"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_File_OpenRecent",
+        "description": "Open a recently opened document.",
+        "userMessage": {
+            "success": "Recent document opened.",
+            "error": "Unable to open recent document.",
+            "info": "Opening recent document"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_File_Close",
+        "description": "Close the current document.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document closed.",
+            "error": "Unable to close document.",
+            "info": "Closing document"
+        },
+        "params": [
+            {
+                "paramName": "save",
+                "paramType": "string",
+                "paramDescription": "Save behavior. Possible values: SAVE, DONT_SAVE, ASK. Default is ASK.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_File_CloseAll",
+        "description": "Close all open documents.",
+        "userMessage": {
+            "success": "All documents closed.",
+            "error": "Unable to close all documents.",
+            "info": "Closing all documents"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_File_Save",
+        "description": "Save the current document.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document saved.",
+            "error": "Unable to save document.",
+            "info": "Saving document"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_File_SaveAs",
+        "description": "Save the document with a new name or format.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Save As dialog opened.",
+            "error": "Unable to open Save As dialog.",
+            "info": "Opening Save As dialog"
+        },
+        "params": [
+            {
+                "paramName": "format",
+                "paramType": "string",
+                "paramDescription": "File format. Possible values: PSD, JPEG, PNG, TIFF, PDF, GIF. Default is PSD.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_File_SaveACopy",
+        "description": "Save a copy of the document without changing the original.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Copy saved.",
+            "error": "Unable to save copy.",
+            "info": "Saving a copy"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_File_Revert",
+        "description": "Revert the document to the last saved version.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document reverted to last saved version.",
+            "error": "Unable to revert document.",
+            "info": "Reverting to last saved version"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_File_Export_ExportAs",
+        "description": "Open Export As dialog for custom export settings.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Export As dialog opened.",
+            "error": "Unable to open Export As dialog.",
+            "info": "Opening Export As dialog"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_File_Export_SaveForWeb",
+        "description": "Open Save for Web dialog with optimized web export options.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Save for Web dialog opened.",
+            "error": "Unable to open Save for Web dialog.",
+            "info": "Opening Save for Web dialog"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_File_Export_QuickExportPNG",
+        "description": "Quickly export as PNG with default settings.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Exported as PNG.",
+            "error": "Unable to export as PNG.",
+            "info": "Quick exporting as PNG"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_File_Print",
+        "description": "Open the Print dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Print dialog opened.",
+            "error": "Unable to open Print dialog.",
+            "info": "Opening Print dialog"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Edit_Undo",
+        "description": "Undo the last action.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Last action undone.",
+            "error": "Nothing to undo.",
+            "info": "Undoing last action"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Edit_Redo",
+        "description": "Redo the previously undone action.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Action redone.",
+            "error": "Nothing to redo.",
+            "info": "Redoing action"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Edit_StepBackward",
+        "description": "Step backward through history states.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Stepped backward in history.",
+            "error": "Cannot step backward further.",
+            "info": "Stepping backward in history"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Edit_StepForward",
+        "description": "Step forward through history states.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Stepped forward in history.",
+            "error": "Cannot step forward further.",
+            "info": "Stepping forward in history"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Edit_Cut",
+        "description": "Cut the selection to clipboard.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Selection cut to clipboard.",
+            "error": "Unable to cut. No selection or nothing to cut.",
+            "info": "Cutting selection"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Edit_Copy",
+        "description": "Copy the selection to clipboard.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Selection copied to clipboard.",
+            "error": "Unable to copy. No selection.",
+            "info": "Copying selection"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Edit_CopyMerged",
+        "description": "Copy merged visible layers to clipboard.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Merged copy placed on clipboard.",
+            "error": "Unable to copy merged.",
+            "info": "Copying merged layers"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Edit_Paste",
+        "description": "Paste clipboard contents.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Pasted from clipboard.",
+            "error": "Nothing to paste or clipboard is empty.",
+            "info": "Pasting from clipboard"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Edit_PasteInPlace",
+        "description": "Paste clipboard contents in the same position.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Pasted in place.",
+            "error": "Nothing to paste.",
+            "info": "Pasting in place"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Edit_PasteInto",
+        "description": "Paste clipboard contents into a selection.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Pasted into selection.",
+            "error": "Unable to paste into selection.",
+            "info": "Pasting into selection"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Edit_Clear",
+        "description": "Clear the selection contents.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Selection cleared.",
+            "error": "Unable to clear. No selection.",
+            "info": "Clearing selection"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Edit_Fill",
+        "description": "Fill the selection with color or pattern.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Fill applied.",
+            "error": "Unable to apply fill.",
+            "info": "Filling selection"
+        },
+        "params": [
+            {
+                "paramName": "contents",
+                "paramType": "string",
+                "paramDescription": "Fill contents. Possible values: FOREGROUND, BACKGROUND, COLOR, CONTENT_AWARE, PATTERN, HISTORY, BLACK, WHITE, 50_PERCENT_GRAY. Default is FOREGROUND.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "opacity",
+                "paramType": "number",
+                "paramDescription": "Fill opacity from 0 to 100. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "blendMode",
+                "paramType": "string",
+                "paramDescription": "Blend mode. Default is NORMAL.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Menu_Edit_Stroke",
+        "description": "Stroke the selection outline.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Stroke applied.",
+            "error": "Unable to apply stroke. No selection.",
+            "info": "Stroking selection"
+        },
+        "params": [
+            {
+                "paramName": "width",
+                "paramType": "number",
+                "paramDescription": "Stroke width in pixels. Default is 1.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "location",
+                "paramType": "string",
+                "paramDescription": "Stroke location. Possible values: INSIDE, CENTER, OUTSIDE. Default is CENTER.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Menu_Edit_ContentAwareFill",
+        "description": "Open Content-Aware Fill workspace for intelligent fill.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Content-Aware Fill workspace opened.",
+            "error": "Unable to open Content-Aware Fill. Make a selection first.",
+            "info": "Opening Content-Aware Fill"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Edit_FreeTransform",
+        "description": "Enter Free Transform mode.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Free Transform mode activated.",
+            "error": "Unable to enter Free Transform mode.",
+            "info": "Entering Free Transform mode"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Edit_Transform_Scale",
+        "description": "Scale the layer or selection.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Scale transform activated.",
+            "error": "Unable to scale.",
+            "info": "Scaling"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Edit_Transform_Rotate",
+        "description": "Rotate the layer or selection.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Rotate transform activated.",
+            "error": "Unable to rotate.",
+            "info": "Rotating"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Edit_Transform_Skew",
+        "description": "Skew the layer or selection.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Skew transform activated.",
+            "error": "Unable to skew.",
+            "info": "Skewing"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Edit_Transform_Distort",
+        "description": "Distort the layer or selection.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Distort transform activated.",
+            "error": "Unable to distort.",
+            "info": "Distorting"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Edit_Transform_Perspective",
+        "description": "Apply perspective transform.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Perspective transform activated.",
+            "error": "Unable to apply perspective.",
+            "info": "Applying perspective"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Edit_Transform_Warp",
+        "description": "Apply warp transform.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Warp transform activated.",
+            "error": "Unable to warp.",
+            "info": "Warping"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Edit_Transform_Rotate180",
+        "description": "Rotate 180 degrees.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Rotated 180 degrees.",
+            "error": "Unable to rotate.",
+            "info": "Rotating 180 degrees"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Edit_Transform_Rotate90CW",
+        "description": "Rotate 90 degrees clockwise.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Rotated 90 degrees clockwise.",
+            "error": "Unable to rotate.",
+            "info": "Rotating 90 degrees clockwise"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Edit_Transform_Rotate90CCW",
+        "description": "Rotate 90 degrees counter-clockwise.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Rotated 90 degrees counter-clockwise.",
+            "error": "Unable to rotate.",
+            "info": "Rotating 90 degrees counter-clockwise"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Edit_Transform_FlipHorizontal",
+        "description": "Flip horizontally.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Flipped horizontally.",
+            "error": "Unable to flip.",
+            "info": "Flipping horizontally"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Edit_Transform_FlipVertical",
+        "description": "Flip vertically.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Flipped vertically.",
+            "error": "Unable to flip.",
+            "info": "Flipping vertically"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Edit_PuppetWarp",
+        "description": "Enter Puppet Warp mode.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Puppet Warp mode activated.",
+            "error": "Unable to enter Puppet Warp mode.",
+            "info": "Entering Puppet Warp mode"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Edit_PerspectiveWarp",
+        "description": "Enter Perspective Warp mode.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Perspective Warp mode activated.",
+            "error": "Unable to enter Perspective Warp mode.",
+            "info": "Entering Perspective Warp mode"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Edit_ContentAwareScale",
+        "description": "Enter Content-Aware Scale mode.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Content-Aware Scale mode activated.",
+            "error": "Unable to enter Content-Aware Scale mode.",
+            "info": "Entering Content-Aware Scale mode"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Edit_DefinePattern",
+        "description": "Define the selection as a pattern.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Pattern defined.",
+            "error": "Unable to define pattern.",
+            "info": "Defining pattern"
+        },
+        "params": [
+            {
+                "paramName": "name",
+                "paramType": "string",
+                "paramDescription": "Name for the pattern.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Menu_Edit_DefineBrush",
+        "description": "Define the selection as a brush preset.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Brush preset defined.",
+            "error": "Unable to define brush preset.",
+            "info": "Defining brush preset"
+        },
+        "params": [
+            {
+                "paramName": "name",
+                "paramType": "string",
+                "paramDescription": "Name for the brush.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Menu_Edit_Preferences",
+        "description": "Open Preferences dialog.",
+        "userMessage": {
+            "success": "Preferences dialog opened.",
+            "error": "Unable to open Preferences.",
+            "info": "Opening Preferences"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_ImageSize",
+        "description": "Open Image Size dialog to resize the document.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Image Size dialog opened.",
+            "error": "Unable to open Image Size dialog.",
+            "info": "Opening Image Size dialog"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_CanvasSize",
+        "description": "Open Canvas Size dialog to change canvas dimensions.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Canvas Size dialog opened.",
+            "error": "Unable to open Canvas Size dialog.",
+            "info": "Opening Canvas Size dialog"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_ImageRotation_180",
+        "description": "Rotate the entire image 180 degrees.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Image rotated 180 degrees.",
+            "error": "Unable to rotate image.",
+            "info": "Rotating image 180 degrees"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_ImageRotation_90CW",
+        "description": "Rotate the entire image 90 degrees clockwise.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Image rotated 90 degrees clockwise.",
+            "error": "Unable to rotate image.",
+            "info": "Rotating image 90 degrees clockwise"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_ImageRotation_90CCW",
+        "description": "Rotate the entire image 90 degrees counter-clockwise.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Image rotated 90 degrees counter-clockwise.",
+            "error": "Unable to rotate image.",
+            "info": "Rotating image 90 degrees counter-clockwise"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_ImageRotation_Arbitrary",
+        "description": "Rotate the image by a custom angle.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Image rotated.",
+            "error": "Unable to rotate image.",
+            "info": "Rotating image by custom angle"
+        },
+        "params": [
+            {
+                "paramName": "angle",
+                "paramType": "number",
+                "paramDescription": "Rotation angle in degrees.",
+                "isMandatory": true
+            },
+            {
+                "paramName": "direction",
+                "paramType": "string",
+                "paramDescription": "Direction. Possible values: CW, CCW. Default is CW.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Menu_Image_ImageRotation_FlipHorizontal",
+        "description": "Flip the entire image horizontally.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Image flipped horizontally.",
+            "error": "Unable to flip image.",
+            "info": "Flipping image horizontally"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_ImageRotation_FlipVertical",
+        "description": "Flip the entire image vertically.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Image flipped vertically.",
+            "error": "Unable to flip image.",
+            "info": "Flipping image vertically"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_Crop",
+        "description": "Crop the image to the current selection.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Image cropped to selection.",
+            "error": "Unable to crop. Make a selection first.",
+            "info": "Cropping to selection"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_Trim",
+        "description": "Trim transparent or colored pixels from edges.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Image trimmed.",
+            "error": "Unable to trim image.",
+            "info": "Trimming image"
+        },
+        "params": [
+            {
+                "paramName": "basedOn",
+                "paramType": "string",
+                "paramDescription": "What to trim. Possible values: TRANSPARENT_PIXELS, TOP_LEFT_PIXEL_COLOR, BOTTOM_RIGHT_PIXEL_COLOR. Default is TRANSPARENT_PIXELS.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Menu_Image_RevealAll",
+        "description": "Reveal all hidden canvas area.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "All canvas area revealed.",
+            "error": "Unable to reveal all.",
+            "info": "Revealing all canvas"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_Duplicate",
+        "description": "Duplicate the entire document.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document duplicated.",
+            "error": "Unable to duplicate document.",
+            "info": "Duplicating document"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_AutoTone",
+        "description": "Automatically adjust tonal range.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Auto Tone applied.",
+            "error": "Unable to apply Auto Tone.",
+            "info": "Applying Auto Tone"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_AutoContrast",
+        "description": "Automatically adjust contrast.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Auto Contrast applied.",
+            "error": "Unable to apply Auto Contrast.",
+            "info": "Applying Auto Contrast"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_AutoColor",
+        "description": "Automatically adjust color balance.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Auto Color applied.",
+            "error": "Unable to apply Auto Color.",
+            "info": "Applying Auto Color"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_BrightnessContrast",
+        "description": "Open Brightness/Contrast adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Brightness/Contrast dialog opened.",
+            "error": "Unable to open Brightness/Contrast.",
+            "info": "Opening Brightness/Contrast"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_Levels",
+        "description": "Open Levels adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Levels dialog opened.",
+            "error": "Unable to open Levels.",
+            "info": "Opening Levels"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_Curves",
+        "description": "Open Curves adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Curves dialog opened.",
+            "error": "Unable to open Curves.",
+            "info": "Opening Curves"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_Exposure",
+        "description": "Open Exposure adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Exposure dialog opened.",
+            "error": "Unable to open Exposure.",
+            "info": "Opening Exposure"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_Vibrance",
+        "description": "Open Vibrance adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Vibrance dialog opened.",
+            "error": "Unable to open Vibrance.",
+            "info": "Opening Vibrance"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_HueSaturation",
+        "description": "Open Hue/Saturation adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Hue/Saturation dialog opened.",
+            "error": "Unable to open Hue/Saturation.",
+            "info": "Opening Hue/Saturation"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_ColorBalance",
+        "description": "Open Color Balance adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Color Balance dialog opened.",
+            "error": "Unable to open Color Balance.",
+            "info": "Opening Color Balance"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_BlackAndWhite",
+        "description": "Open Black & White adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Black & White dialog opened.",
+            "error": "Unable to open Black & White.",
+            "info": "Opening Black & White"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_PhotoFilter",
+        "description": "Open Photo Filter adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Photo Filter dialog opened.",
+            "error": "Unable to open Photo Filter.",
+            "info": "Opening Photo Filter"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_ChannelMixer",
+        "description": "Open Channel Mixer adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Channel Mixer dialog opened.",
+            "error": "Unable to open Channel Mixer.",
+            "info": "Opening Channel Mixer"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_ColorLookup",
+        "description": "Open Color Lookup adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Color Lookup dialog opened.",
+            "error": "Unable to open Color Lookup.",
+            "info": "Opening Color Lookup"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_Invert",
+        "description": "Invert colors in the image.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Colors inverted.",
+            "error": "Unable to invert colors.",
+            "info": "Inverting colors"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_Posterize",
+        "description": "Open Posterize adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Posterize dialog opened.",
+            "error": "Unable to open Posterize.",
+            "info": "Opening Posterize"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_Threshold",
+        "description": "Open Threshold adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Threshold dialog opened.",
+            "error": "Unable to open Threshold.",
+            "info": "Opening Threshold"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_GradientMap",
+        "description": "Open Gradient Map adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Gradient Map dialog opened.",
+            "error": "Unable to open Gradient Map.",
+            "info": "Opening Gradient Map"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_SelectiveColor",
+        "description": "Open Selective Color adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Selective Color dialog opened.",
+            "error": "Unable to open Selective Color.",
+            "info": "Opening Selective Color"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_ShadowsHighlights",
+        "description": "Open Shadows/Highlights adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Shadows/Highlights dialog opened.",
+            "error": "Unable to open Shadows/Highlights.",
+            "info": "Opening Shadows/Highlights"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_HDRToning",
+        "description": "Open HDR Toning adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "HDR Toning dialog opened.",
+            "error": "Unable to open HDR Toning.",
+            "info": "Opening HDR Toning"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_Desaturate",
+        "description": "Remove all color saturation from the image.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Image desaturated.",
+            "error": "Unable to desaturate.",
+            "info": "Desaturating image"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_MatchColor",
+        "description": "Open Match Color adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Match Color dialog opened.",
+            "error": "Unable to open Match Color.",
+            "info": "Opening Match Color"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_ReplaceColor",
+        "description": "Open Replace Color adjustment dialog.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Replace Color dialog opened.",
+            "error": "Unable to open Replace Color.",
+            "info": "Opening Replace Color"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Image_Adjustments_Equalize",
+        "description": "Equalize the brightness values in the image.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Image equalized.",
+            "error": "Unable to equalize.",
+            "info": "Equalizing image"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_Mode_RGB",
+        "description": "Convert image to RGB color mode.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Converted to RGB mode.",
+            "error": "Unable to convert to RGB.",
+            "info": "Converting to RGB"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_Mode_CMYK",
+        "description": "Convert image to CMYK color mode.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Converted to CMYK mode.",
+            "error": "Unable to convert to CMYK.",
+            "info": "Converting to CMYK"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_Mode_Grayscale",
+        "description": "Convert image to Grayscale mode.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Converted to Grayscale mode.",
+            "error": "Unable to convert to Grayscale.",
+            "info": "Converting to Grayscale"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_Mode_Lab",
+        "description": "Convert image to Lab color mode.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Converted to Lab mode.",
+            "error": "Unable to convert to Lab.",
+            "info": "Converting to Lab"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_Mode_8Bits",
+        "description": "Convert to 8 bits per channel.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Converted to 8 bits/channel.",
+            "error": "Unable to convert to 8 bits.",
+            "info": "Converting to 8 bits"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_Mode_16Bits",
+        "description": "Convert to 16 bits per channel.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Converted to 16 bits/channel.",
+            "error": "Unable to convert to 16 bits.",
+            "info": "Converting to 16 bits"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_Image_Mode_32Bits",
+        "description": "Convert to 32 bits per channel.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Converted to 32 bits/channel.",
+            "error": "Unable to convert to 32 bits.",
+            "info": "Converting to 32 bits"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Menu_View_ZoomIn",
+        "description": "Zoom in on the canvas.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Zoomed in.",
+            "error": "Cannot zoom in further.",
+            "info": "Zooming in"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_View_ZoomOut",
+        "description": "Zoom out from the canvas.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Zoomed out.",
+            "error": "Cannot zoom out further.",
+            "info": "Zooming out"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_View_FitOnScreen",
+        "description": "Fit the entire image on screen.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Image fit on screen.",
+            "error": "Unable to fit on screen.",
+            "info": "Fitting on screen"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_View_ActualPixels",
+        "description": "View at 100% zoom (actual pixels).",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Viewing at actual pixels (100%).",
+            "error": "Unable to view at actual pixels.",
+            "info": "Viewing at 100%"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_View_PrintSize",
+        "description": "View at print size.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Viewing at print size.",
+            "error": "Unable to view at print size.",
+            "info": "Viewing at print size"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_View_ShowRulers",
+        "description": "Toggle rulers visibility.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Rulers visibility toggled.",
+            "error": "Unable to toggle rulers.",
+            "info": "Toggling rulers"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_View_ShowGrid",
+        "description": "Toggle grid visibility.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Grid visibility toggled.",
+            "error": "Unable to toggle grid.",
+            "info": "Toggling grid"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_View_ShowGuides",
+        "description": "Toggle guides visibility.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Guides visibility toggled.",
+            "error": "Unable to toggle guides.",
+            "info": "Toggling guides"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_View_SnapTo",
+        "description": "Toggle snap to guides/grid.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Snap toggled.",
+            "error": "Unable to toggle snap.",
+            "info": "Toggling snap"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Window_Arrange_TileAll",
+        "description": "Tile all open documents.",
+        "userMessage": {
+            "success": "Documents tiled.",
+            "error": "Unable to tile documents.",
+            "info": "Tiling documents"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Window_Arrange_CascadeAll",
+        "description": "Cascade all open documents.",
+        "userMessage": {
+            "success": "Documents cascaded.",
+            "error": "Unable to cascade documents.",
+            "info": "Cascading documents"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Menu_Help_About",
+        "description": "Show application information.",
+        "userMessage": {
+            "success": "About dialog opened.",
+            "error": "Unable to open About dialog.",
+            "info": "Opening About dialog"
+        },
+        "params": [],
+        "undoable": false
+    }
+]

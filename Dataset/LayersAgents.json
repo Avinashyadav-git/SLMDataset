@@ -1,0 +1,62 @@
+[
+	{
+		"functionName": "Layer_AddText",
+		"description": "Add text on the document or image. Do not throw error is user has not provided any other information.",
+		"prerequisites" : ["documentOnCanvas", "preExecuteSelectTextTool"],
+		"userMessage": {
+			"success": "Text layer added to the document.",
+			"error": "Unable to add text layer. There was an issue creating it.",
+			"info": "Adding text"
+		},
+		"params": [
+			{
+				"paramName": "text",
+				"paramType": "string",
+				"paramDescription": "Actual text provided by the user which is to be added on the image and its default value is empty string."
+			},
+			{
+				"paramName": "fontSize",
+				"paramType": "number",
+				"paramDescription": "Font size in pixels. Default Size is 150.",
+				"isMandatory": false
+			},
+			{
+				"paramName": "textColorRed",
+				"paramType": "number",
+				"paramDescription": "RGB Red component of the text color (0-255). Default is 255.",
+				"isMandatory": false
+			},
+			{
+				"paramName": "textColorGreen",
+				"paramType": "number",
+				"paramDescription": "RGB Green component of the text color (0-255). Default is 255.",
+				"isMandatory": false
+			},
+			{
+				"paramName": "textColorBlue",
+				"paramType": "number",
+				"paramDescription": "RGB Blue component of the text color (0-255). Default is 255.",
+				"isMandatory": false
+			},
+			{
+				"paramName": "positionX",
+				"paramType": "number",
+				"paramDescription": "Horizontal position (percent, 0-100) for the text anchor. Default is 30.",
+				"isMandatory": false
+			},
+			{
+				"paramName": "positionY",
+				"paramType": "number",
+				"paramDescription": "Vertical position (percent, 0-100) for the text anchor. Default is 45.",
+				"isMandatory": false
+			},
+			{
+				"paramName": "opacity",
+				"paramType": "number",
+				"paramDescription": "Layer opacity (0-100). Default is 100.",
+				"isMandatory": false
+			}
+		]
+	}
+]
+

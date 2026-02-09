@@ -1,0 +1,421 @@
+[
+    {
+        "functionName": "Export_JPEG",
+        "description": "Export the current document as a JPEG image file.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document exported as JPEG successfully.",
+            "error": "Unable to export as JPEG. Ensure a document is open and try again.",
+            "info": "Exporting document as JPEG"
+        },
+        "params": [
+            {
+                "paramName": "quality",
+                "paramType": "number",
+                "paramDescription": "JPEG quality from 0 (lowest) to 12 (highest). Default is 8.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "embedColorProfile",
+                "paramType": "boolean",
+                "paramDescription": "Embed ICC color profile in the file. Default is true.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "progressive",
+                "paramType": "boolean",
+                "paramDescription": "Save as progressive JPEG for web display. Default is false.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Export_PNG",
+        "description": "Export the current document as a PNG image file.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document exported as PNG successfully.",
+            "error": "Unable to export as PNG. Ensure a document is open and try again.",
+            "info": "Exporting document as PNG"
+        },
+        "params": [
+            {
+                "paramName": "compression",
+                "paramType": "number",
+                "paramDescription": "PNG compression level from 0 (none) to 9 (maximum). Default is 6.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "interlaced",
+                "paramType": "boolean",
+                "paramDescription": "Save as interlaced PNG for progressive display. Default is false.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "transparency",
+                "paramType": "boolean",
+                "paramDescription": "Preserve transparency in the exported file. Default is true.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Export_GIF",
+        "description": "Export the current document as a GIF image file.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document exported as GIF successfully.",
+            "error": "Unable to export as GIF. Ensure a document is open and try again.",
+            "info": "Exporting document as GIF"
+        },
+        "params": [
+            {
+                "paramName": "colors",
+                "paramType": "number",
+                "paramDescription": "Number of colors in palette from 2 to 256. Default is 256.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "dither",
+                "paramType": "string",
+                "paramDescription": "Dithering method. Possible values: NONE, DIFFUSION, PATTERN, NOISE. Default is DIFFUSION.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "transparency",
+                "paramType": "boolean",
+                "paramDescription": "Preserve transparency in the exported file. Default is false.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "interlaced",
+                "paramType": "boolean",
+                "paramDescription": "Save as interlaced GIF. Default is false.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Export_TIFF",
+        "description": "Export the current document as a TIFF image file.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document exported as TIFF successfully.",
+            "error": "Unable to export as TIFF. Ensure a document is open and try again.",
+            "info": "Exporting document as TIFF"
+        },
+        "params": [
+            {
+                "paramName": "compression",
+                "paramType": "string",
+                "paramDescription": "Compression method. Possible values: NONE, LZW, ZIP, JPEG. Default is NONE.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "embedColorProfile",
+                "paramType": "boolean",
+                "paramDescription": "Embed ICC color profile in the file. Default is true.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "layers",
+                "paramType": "boolean",
+                "paramDescription": "Save layers in the TIFF file. Default is false.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "transparency",
+                "paramType": "boolean",
+                "paramDescription": "Preserve transparency. Default is true.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Export_PSD",
+        "description": "Export the current document as a Photoshop PSD file with layers preserved.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document exported as PSD successfully.",
+            "error": "Unable to export as PSD. Ensure a document is open and try again.",
+            "info": "Exporting document as PSD"
+        },
+        "params": [
+            {
+                "paramName": "maximizeCompatibility",
+                "paramType": "boolean",
+                "paramDescription": "Include a flattened composite for compatibility. Default is true.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Export_PDF",
+        "description": "Export the current document as a PDF file.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document exported as PDF successfully.",
+            "error": "Unable to export as PDF. Ensure a document is open and try again.",
+            "info": "Exporting document as PDF"
+        },
+        "params": [
+            {
+                "paramName": "quality",
+                "paramType": "string",
+                "paramDescription": "PDF quality preset. Possible values: SMALLEST_FILE, STANDARD, HIGH_QUALITY, PRESS_QUALITY. Default is STANDARD.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "preserveEditing",
+                "paramType": "boolean",
+                "paramDescription": "Preserve Photoshop editing capabilities. Default is true.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "embedColorProfile",
+                "paramType": "boolean",
+                "paramDescription": "Embed ICC color profile. Default is true.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "layers",
+                "paramType": "boolean",
+                "paramDescription": "Include layers in the PDF. Default is false.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Export_WebP",
+        "description": "Export the current document as a WebP image file for web use.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document exported as WebP successfully.",
+            "error": "Unable to export as WebP. Ensure a document is open and try again.",
+            "info": "Exporting document as WebP"
+        },
+        "params": [
+            {
+                "paramName": "quality",
+                "paramType": "number",
+                "paramDescription": "WebP quality from 0 to 100. Default is 80.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "lossless",
+                "paramType": "boolean",
+                "paramDescription": "Use lossless compression. Default is false.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "transparency",
+                "paramType": "boolean",
+                "paramDescription": "Preserve transparency. Default is true.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Export_BMP",
+        "description": "Export the current document as a BMP bitmap file.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document exported as BMP successfully.",
+            "error": "Unable to export as BMP. Ensure a document is open and try again.",
+            "info": "Exporting document as BMP"
+        },
+        "params": [
+            {
+                "paramName": "depth",
+                "paramType": "string",
+                "paramDescription": "Bit depth. Possible values: BIT1, BIT4, BIT8, BIT16, BIT24, BIT32. Default is BIT24.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "rleCompression",
+                "paramType": "boolean",
+                "paramDescription": "Use RLE compression for 4 and 8 bit depths. Default is false.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Export_SVG",
+        "description": "Export vector content and shapes as an SVG file.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document exported as SVG successfully.",
+            "error": "Unable to export as SVG. Ensure a document is open and contains vector content.",
+            "info": "Exporting document as SVG"
+        },
+        "params": [
+            {
+                "paramName": "fontSubsetting",
+                "paramType": "string",
+                "paramDescription": "Font embedding method. Possible values: NONE, GLYPHS_USED, ALL_GLYPHS. Default is GLYPHS_USED.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "embedImages",
+                "paramType": "boolean",
+                "paramDescription": "Embed raster images in the SVG. Default is true.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Export_HEIF",
+        "description": "Export the current document as a HEIF/HEIC image file.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document exported as HEIF successfully.",
+            "error": "Unable to export as HEIF. Ensure a document is open and try again.",
+            "info": "Exporting document as HEIF"
+        },
+        "params": [
+            {
+                "paramName": "quality",
+                "paramType": "number",
+                "paramDescription": "HEIF quality from 0 to 100. Default is 80.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "embedColorProfile",
+                "paramType": "boolean",
+                "paramDescription": "Embed ICC color profile. Default is true.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Export_QuickExportPNG",
+        "description": "Quickly export the document as PNG with default settings.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document quick exported as PNG successfully.",
+            "error": "Unable to quick export. Ensure a document is open and try again.",
+            "info": "Quick exporting as PNG"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Export_QuickExportJPG",
+        "description": "Quickly export the document as JPG with default settings.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document quick exported as JPG successfully.",
+            "error": "Unable to quick export. Ensure a document is open and try again.",
+            "info": "Quick exporting as JPG"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Export_ExportAs",
+        "description": "Open the Export As dialog for custom export settings.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Export As dialog is open. Choose format and settings, then click Export.",
+            "error": "Unable to open Export As dialog. Ensure a document is open.",
+            "info": "Opening Export As dialog"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Export_SaveForWeb",
+        "description": "Open the Save for Web dialog with optimized web export options.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Save for Web dialog is open. Optimize settings and click Save.",
+            "error": "Unable to open Save for Web dialog. Ensure a document is open.",
+            "info": "Opening Save for Web dialog"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Export_ExportLayers",
+        "description": "Export all layers as separate image files.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "All layers exported as separate files.",
+            "error": "Unable to export layers. Ensure a document with multiple layers is open.",
+            "info": "Exporting layers to files"
+        },
+        "params": [
+            {
+                "paramName": "format",
+                "paramType": "string",
+                "paramDescription": "Export format. Possible values: PNG, JPEG, PSD, TIFF, PDF. Default is PNG.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "includeHidden",
+                "paramType": "boolean",
+                "paramDescription": "Include hidden layers in export. Default is false.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "trimLayers",
+                "paramType": "boolean",
+                "paramDescription": "Trim transparent pixels around each layer. Default is true.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Export_ExportArtboards",
+        "description": "Export all artboards as separate image files.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "All artboards exported successfully.",
+            "error": "Unable to export artboards. Ensure a document with artboards is open.",
+            "info": "Exporting artboards to files"
+        },
+        "params": [
+            {
+                "paramName": "format",
+                "paramType": "string",
+                "paramDescription": "Export format. Possible values: PNG, JPEG, PSD, PDF. Default is PNG.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Export_CopyMerged",
+        "description": "Copy a merged version of visible layers to clipboard.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Merged copy placed on clipboard.",
+            "error": "Unable to copy merged. Ensure a document is open.",
+            "info": "Copying merged layers to clipboard"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Export_GenerateImageAssets",
+        "description": "Enable automatic generation of image assets from layers with special naming.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Image asset generation enabled. Rename layers with file extensions to auto-export.",
+            "error": "Unable to enable image asset generation.",
+            "info": "Enabling image asset generation"
+        },
+        "params": [],
+        "undoable": false
+    }
+]

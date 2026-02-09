@@ -1,0 +1,153 @@
+[
+    {
+        "functionName": "DocTool_New",
+        "description": "Create a new document with specified parameters including dimensions, color mode, resolution, and background fill.",
+        "userMessage": {
+            "success": "New document created successfully.",
+            "error": "Document creation failed. Double-check your settings and try again.",
+            "info": "Setting up your new document"
+        },
+        "params": [
+            {
+                "paramName": "depth",
+                "paramType": "number",
+                "paramDescription": "Bit depth (e.g., 8, 16, 32). Default is 8.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "fill",
+                "paramType": "string",
+                "paramDescription": "Background fill type. Possible values: WHITE, BLACK, BACKGROUNDCOLOR, TRANSPARENT, COLOR. Default is WHITE.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "height",
+                "paramType": "number",
+                "paramDescription": "Document height in pixels. Default is 600.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "Color mode. Possible values: BITMAP, CMYK, GRAYSCALE, RGB. Default is RGB.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "name",
+                "paramType": "string",
+                "paramDescription": "Document name. Default is Untitled.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "pixelScaleFactor",
+                "paramType": "number",
+                "paramDescription": "Pixel scale factor for high-DPI displays. Default is 1.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "resolution",
+                "paramType": "number",
+                "paramDescription": "Resolution in pixels per inch. Default is 72.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "width",
+                "paramType": "number",
+                "paramDescription": "Document width in pixels. Default is 800.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "DocTool_Rotate",
+        "description": "Rotate the active document canvas by the specified angle.",
+        "prerequisites" : ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document has been successfully rotated by the specified angle.",
+            "error": "Unable to rotate document. Please ensure there is an active document and the rotation angle is valid.",
+            "info": "Rotating the canvas by the specified angle"
+        },
+        "params": [
+            {
+                "paramName": "angle",
+                "paramType": "number",
+                "paramDescription": "Degrees to rotate the canvas. Positive values rotate clockwise. Default is 0 degree.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "DocTool_FlipHorizontal",
+        "description": "Flip the active document canvas horizontally.",
+        "prerequisites" : ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document has been successfully flipped horizontally.",
+            "error": "Unable to flip document horizontally. Please ensure there is an active document to flip.",
+            "info": "Flipping the canvas horizontally"
+        },
+        "params": []
+    },
+    {
+        "functionName": "DocTool_FlipVertical",
+        "description": "Flip the active document canvas vertically.",
+        "prerequisites" : ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document has been successfully flipped vertically.",
+            "error": "Unable to flip document vertically. Please ensure there is an active document to flip.",
+            "info": "Flipping the canvas vertically"
+        },
+        "params": []
+    },
+    {
+        "functionName": "DocTool_Close",
+        "description": "Close the active document.",
+        "prerequisites" : ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document has been successfully closed.",
+            "error": "Unable to close document. There may be no active document or there was an issue with the closing process.",
+            "info": "Closing the active document"
+        },
+        "params": [
+            {
+                "paramName": "saveDialogOptions",
+                "paramType": "string",
+                "paramDescription": "Options for handling unsaved changes when closing. Possible values: SAVECHANGES, DONOTSAVECHANGES, PROMPTTOSAVECHANGES. Default is SAVECHANGES.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "DocTool_Zoom",
+        "description": "Set the zoom factor on the active document. Considering the image of 100 by 100, horizontal and vertical in percentage.",
+        "prerequisites" : ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Zoom level has been successfully adjusted to the specified factor.",
+            "error": "Unable to change zoom level. Please ensure there is an active document and the zoom factor is valid.",
+            "info": "Adjusting the zoom level"
+        },
+        "params": [
+            {
+                "paramName": "zoom",
+                "paramType": "number",
+                "paramDescription": "Zoom factor to set (e.g., 200 for 200%, 50 for 50%). Consider initial scale is 100% or 100, and a small zoom should be 10% which would be 110. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "horizontal",
+                "paramType": "number",
+                "paramDescription": "Horizontal point where the zoom should be focussed considering image scale of 0 to 100. Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "vertical",
+                "paramType": "number",
+                "paramDescription": "Vertical point where the zoom should be focussed considering image scale of 0 to 100. Default is 50.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    }
+]
+

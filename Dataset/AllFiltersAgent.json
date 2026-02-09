@@ -1,0 +1,1279 @@
+[
+    {
+        "functionName": "Filter_LastFilter",
+        "description": "Reapply the last used filter with the same settings.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Last filter reapplied.",
+            "error": "No previous filter to apply.",
+            "info": "Reapplying last filter"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Filter_ConvertForSmartFilters",
+        "description": "Convert the layer to a Smart Object for non-destructive filtering.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Layer converted for Smart Filters.",
+            "error": "Unable to convert layer.",
+            "info": "Converting to Smart Object"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Filter_NeuralFilters",
+        "description": "Open Neural Filters workspace for AI-powered effects.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Neural Filters workspace opened.",
+            "error": "Unable to open Neural Filters.",
+            "info": "Opening Neural Filters"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Filter_FilterGallery",
+        "description": "Open Filter Gallery to preview and apply artistic filters.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Filter Gallery opened.",
+            "error": "Unable to open Filter Gallery.",
+            "info": "Opening Filter Gallery"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Filter_AdaptiveWideAngle",
+        "description": "Open Adaptive Wide Angle to correct lens distortions.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Adaptive Wide Angle opened.",
+            "error": "Unable to open Adaptive Wide Angle.",
+            "info": "Opening Adaptive Wide Angle"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Filter_CameraRawFilter",
+        "description": "Open Camera Raw Filter for RAW-style adjustments.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Camera Raw Filter opened.",
+            "error": "Unable to open Camera Raw Filter.",
+            "info": "Opening Camera Raw Filter"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Filter_LensCorrection",
+        "description": "Open Lens Correction to fix lens distortions and vignetting.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Lens Correction opened.",
+            "error": "Unable to open Lens Correction.",
+            "info": "Opening Lens Correction"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Filter_Liquify",
+        "description": "Open Liquify workspace for warping and reshaping.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Liquify workspace opened.",
+            "error": "Unable to open Liquify.",
+            "info": "Opening Liquify"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Filter_Vanishing Point",
+        "description": "Open Vanishing Point for perspective-aware editing.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Vanishing Point opened.",
+            "error": "Unable to open Vanishing Point.",
+            "info": "Opening Vanishing Point"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Filter_Blur_AverageBlur",
+        "description": "Apply average blur to smooth the entire image uniformly.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Average blur applied.",
+            "error": "Unable to apply average blur.",
+            "info": "Applying average blur"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Filter_Blur_GaussianBlur",
+        "description": "Apply Gaussian blur for smooth, natural blurring.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Gaussian blur applied.",
+            "error": "Unable to apply Gaussian blur.",
+            "info": "Applying Gaussian blur"
+        },
+        "params": [
+            {
+                "paramName": "radius",
+                "paramType": "number",
+                "paramDescription": "Blur radius in pixels from 0.1 to 1000. Default is 5.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Blur_MotionBlur",
+        "description": "Apply motion blur to simulate movement.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Motion blur applied.",
+            "error": "Unable to apply motion blur.",
+            "info": "Applying motion blur"
+        },
+        "params": [
+            {
+                "paramName": "angle",
+                "paramType": "number",
+                "paramDescription": "Blur angle in degrees from -360 to 360. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "distance",
+                "paramType": "number",
+                "paramDescription": "Blur distance in pixels from 1 to 2000. Default is 10.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Blur_RadialBlur",
+        "description": "Apply radial blur for spin or zoom effects.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Radial blur applied.",
+            "error": "Unable to apply radial blur.",
+            "info": "Applying radial blur"
+        },
+        "params": [
+            {
+                "paramName": "amount",
+                "paramType": "number",
+                "paramDescription": "Blur amount from 1 to 100. Default is 10.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "method",
+                "paramType": "string",
+                "paramDescription": "Blur method. Possible values: SPIN, ZOOM. Default is SPIN.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Blur_SurfaceBlur",
+        "description": "Apply surface blur while preserving edges.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Surface blur applied.",
+            "error": "Unable to apply surface blur.",
+            "info": "Applying surface blur"
+        },
+        "params": [
+            {
+                "paramName": "radius",
+                "paramType": "number",
+                "paramDescription": "Blur radius from 1 to 100. Default is 5.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "threshold",
+                "paramType": "number",
+                "paramDescription": "Threshold from 2 to 255. Default is 15.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Blur_BoxBlur",
+        "description": "Apply simple box blur.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Box blur applied.",
+            "error": "Unable to apply box blur.",
+            "info": "Applying box blur"
+        },
+        "params": [
+            {
+                "paramName": "radius",
+                "paramType": "number",
+                "paramDescription": "Blur radius in pixels from 1 to 999. Default is 5.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Blur_ShapeBlur",
+        "description": "Apply blur using a custom shape.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Shape blur applied.",
+            "error": "Unable to apply shape blur.",
+            "info": "Applying shape blur"
+        },
+        "params": [
+            {
+                "paramName": "radius",
+                "paramType": "number",
+                "paramDescription": "Blur radius in pixels. Default is 5.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Blur_LensBlur",
+        "description": "Apply realistic lens blur for depth of field effects.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Lens blur applied.",
+            "error": "Unable to apply lens blur.",
+            "info": "Applying lens blur"
+        },
+        "params": [
+            {
+                "paramName": "radius",
+                "paramType": "number",
+                "paramDescription": "Blur radius from 0 to 100. Default is 15.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "bladeCurvature",
+                "paramType": "number",
+                "paramDescription": "Blade curvature from 0 to 100. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "rotation",
+                "paramType": "number",
+                "paramDescription": "Rotation in degrees from 0 to 360. Default is 0.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Blur_SmartBlur",
+        "description": "Apply smart blur with edge detection.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Smart blur applied.",
+            "error": "Unable to apply smart blur.",
+            "info": "Applying smart blur"
+        },
+        "params": [
+            {
+                "paramName": "radius",
+                "paramType": "number",
+                "paramDescription": "Blur radius from 0.1 to 100. Default is 5.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "threshold",
+                "paramType": "number",
+                "paramDescription": "Threshold from 0.1 to 100. Default is 25.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "quality",
+                "paramType": "string",
+                "paramDescription": "Quality. Possible values: LOW, MEDIUM, HIGH. Default is MEDIUM.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "Mode. Possible values: NORMAL, EDGE_ONLY, OVERLAY_EDGE. Default is NORMAL.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_BlurGallery_FieldBlur",
+        "description": "Open Field Blur for point-based blur control.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Field Blur opened.",
+            "error": "Unable to open Field Blur.",
+            "info": "Opening Field Blur"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Filter_BlurGallery_IrisBlur",
+        "description": "Open Iris Blur for elliptical blur focus.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Iris Blur opened.",
+            "error": "Unable to open Iris Blur.",
+            "info": "Opening Iris Blur"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Filter_BlurGallery_TiltShift",
+        "description": "Open Tilt-Shift for miniature effect blur.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Tilt-Shift opened.",
+            "error": "Unable to open Tilt-Shift.",
+            "info": "Opening Tilt-Shift"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Filter_BlurGallery_PathBlur",
+        "description": "Open Path Blur for motion along a path.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Path Blur opened.",
+            "error": "Unable to open Path Blur.",
+            "info": "Opening Path Blur"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Filter_BlurGallery_SpinBlur",
+        "description": "Open Spin Blur for circular motion effects.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Spin Blur opened.",
+            "error": "Unable to open Spin Blur.",
+            "info": "Opening Spin Blur"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Filter_Distort_Displace",
+        "description": "Distort image using a displacement map.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Displace applied.",
+            "error": "Unable to apply displace.",
+            "info": "Applying displace distortion"
+        },
+        "params": [
+            {
+                "paramName": "horizontalScale",
+                "paramType": "number",
+                "paramDescription": "Horizontal displacement scale from -999 to 999. Default is 10.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "verticalScale",
+                "paramType": "number",
+                "paramDescription": "Vertical displacement scale from -999 to 999. Default is 10.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Distort_Pinch",
+        "description": "Pinch or bulge the center of the image.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Pinch applied.",
+            "error": "Unable to apply pinch.",
+            "info": "Applying pinch distortion"
+        },
+        "params": [
+            {
+                "paramName": "amount",
+                "paramType": "number",
+                "paramDescription": "Pinch amount from -100 to 100. Default is 50.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Distort_PolarCoordinates",
+        "description": "Convert between rectangular and polar coordinates.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Polar coordinates applied.",
+            "error": "Unable to apply polar coordinates.",
+            "info": "Applying polar coordinates"
+        },
+        "params": [
+            {
+                "paramName": "conversion",
+                "paramType": "string",
+                "paramDescription": "Conversion type. Possible values: RECTANGULAR_TO_POLAR, POLAR_TO_RECTANGULAR. Default is RECTANGULAR_TO_POLAR.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Distort_Ripple",
+        "description": "Create ripple distortion.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Ripple applied.",
+            "error": "Unable to apply ripple.",
+            "info": "Applying ripple distortion"
+        },
+        "params": [
+            {
+                "paramName": "amount",
+                "paramType": "number",
+                "paramDescription": "Ripple amount from -999 to 999. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "size",
+                "paramType": "string",
+                "paramDescription": "Ripple size. Possible values: SMALL, MEDIUM, LARGE. Default is MEDIUM.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Distort_Shear",
+        "description": "Shear the image along a curve.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Shear applied.",
+            "error": "Unable to apply shear.",
+            "info": "Applying shear distortion"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Filter_Distort_Spherize",
+        "description": "Wrap image around a sphere.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Spherize applied.",
+            "error": "Unable to apply spherize.",
+            "info": "Applying spherize distortion"
+        },
+        "params": [
+            {
+                "paramName": "amount",
+                "paramType": "number",
+                "paramDescription": "Spherize amount from -100 to 100. Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "Mode. Possible values: NORMAL, HORIZONTAL_ONLY, VERTICAL_ONLY. Default is NORMAL.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Distort_Twirl",
+        "description": "Twirl the image from center.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Twirl applied.",
+            "error": "Unable to apply twirl.",
+            "info": "Applying twirl distortion"
+        },
+        "params": [
+            {
+                "paramName": "angle",
+                "paramType": "number",
+                "paramDescription": "Twirl angle from -999 to 999 degrees. Default is 50.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Distort_Wave",
+        "description": "Create wave distortion.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Wave applied.",
+            "error": "Unable to apply wave.",
+            "info": "Applying wave distortion"
+        },
+        "params": [
+            {
+                "paramName": "generators",
+                "paramType": "number",
+                "paramDescription": "Number of wave generators from 1 to 999. Default is 5.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "type",
+                "paramType": "string",
+                "paramDescription": "Wave type. Possible values: SINE, TRIANGLE, SQUARE. Default is SINE.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Distort_ZigZag",
+        "description": "Create zigzag ripple distortion.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "ZigZag applied.",
+            "error": "Unable to apply zigzag.",
+            "info": "Applying zigzag distortion"
+        },
+        "params": [
+            {
+                "paramName": "amount",
+                "paramType": "number",
+                "paramDescription": "Amount from -100 to 100. Default is 10.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "ridges",
+                "paramType": "number",
+                "paramDescription": "Number of ridges from 1 to 20. Default is 5.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "style",
+                "paramType": "string",
+                "paramDescription": "Style. Possible values: AROUND_CENTER, OUT_FROM_CENTER, POND_RIPPLES. Default is POND_RIPPLES.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Noise_AddNoise",
+        "description": "Add random noise to the image.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Noise added.",
+            "error": "Unable to add noise.",
+            "info": "Adding noise"
+        },
+        "params": [
+            {
+                "paramName": "amount",
+                "paramType": "number",
+                "paramDescription": "Noise amount from 0.1 to 400 percent. Default is 10.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "distribution",
+                "paramType": "string",
+                "paramDescription": "Distribution. Possible values: UNIFORM, GAUSSIAN. Default is GAUSSIAN.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "monochromatic",
+                "paramType": "boolean",
+                "paramDescription": "Grayscale noise only. Default is false.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Noise_Despeckle",
+        "description": "Reduce noise while preserving edges.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Despeckle applied.",
+            "error": "Unable to apply despeckle.",
+            "info": "Applying despeckle"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Filter_Noise_DustAndScratches",
+        "description": "Remove dust and scratches.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Dust and scratches removed.",
+            "error": "Unable to remove dust and scratches.",
+            "info": "Removing dust and scratches"
+        },
+        "params": [
+            {
+                "paramName": "radius",
+                "paramType": "number",
+                "paramDescription": "Radius from 1 to 16. Default is 1.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "threshold",
+                "paramType": "number",
+                "paramDescription": "Threshold from 0 to 255. Default is 0.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Noise_Median",
+        "description": "Apply median filter to reduce noise.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Median filter applied.",
+            "error": "Unable to apply median filter.",
+            "info": "Applying median filter"
+        },
+        "params": [
+            {
+                "paramName": "radius",
+                "paramType": "number",
+                "paramDescription": "Radius from 1 to 100 pixels. Default is 1.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Noise_ReduceNoise",
+        "description": "Reduce noise while preserving detail.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Noise reduced.",
+            "error": "Unable to reduce noise.",
+            "info": "Reducing noise"
+        },
+        "params": [
+            {
+                "paramName": "strength",
+                "paramType": "number",
+                "paramDescription": "Strength from 0 to 10. Default is 6.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "preserveDetails",
+                "paramType": "number",
+                "paramDescription": "Preserve details from 0 to 100. Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "reduceColorNoise",
+                "paramType": "number",
+                "paramDescription": "Reduce color noise from 0 to 100. Default is 50.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Pixelate_ColorHalftone",
+        "description": "Create color halftone pattern.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Color halftone applied.",
+            "error": "Unable to apply color halftone.",
+            "info": "Applying color halftone"
+        },
+        "params": [
+            {
+                "paramName": "maxRadius",
+                "paramType": "number",
+                "paramDescription": "Maximum radius from 4 to 127 pixels. Default is 8.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Pixelate_Crystallize",
+        "description": "Create crystallized polygon effect.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Crystallize applied.",
+            "error": "Unable to apply crystallize.",
+            "info": "Applying crystallize"
+        },
+        "params": [
+            {
+                "paramName": "cellSize",
+                "paramType": "number",
+                "paramDescription": "Cell size from 3 to 300. Default is 10.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Pixelate_Facet",
+        "description": "Create faceted surface effect.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Facet applied.",
+            "error": "Unable to apply facet.",
+            "info": "Applying facet"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Filter_Pixelate_Fragment",
+        "description": "Create fragmented blur effect.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Fragment applied.",
+            "error": "Unable to apply fragment.",
+            "info": "Applying fragment"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Filter_Pixelate_Mezzotint",
+        "description": "Create mezzotint pattern.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Mezzotint applied.",
+            "error": "Unable to apply mezzotint.",
+            "info": "Applying mezzotint"
+        },
+        "params": [
+            {
+                "paramName": "type",
+                "paramType": "string",
+                "paramDescription": "Pattern type. Possible values: FINE_DOTS, MEDIUM_DOTS, GRAINY_DOTS, COARSE_DOTS, SHORT_LINES, MEDIUM_LINES, LONG_LINES, SHORT_STROKES, MEDIUM_STROKES, LONG_STROKES. Default is MEDIUM_DOTS.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Pixelate_Mosaic",
+        "description": "Create mosaic tile effect.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Mosaic applied.",
+            "error": "Unable to apply mosaic.",
+            "info": "Applying mosaic"
+        },
+        "params": [
+            {
+                "paramName": "cellSize",
+                "paramType": "number",
+                "paramDescription": "Cell size from 2 to 200. Default is 10.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Pixelate_Pointillize",
+        "description": "Create pointillist dot pattern.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Pointillize applied.",
+            "error": "Unable to apply pointillize.",
+            "info": "Applying pointillize"
+        },
+        "params": [
+            {
+                "paramName": "cellSize",
+                "paramType": "number",
+                "paramDescription": "Cell size from 3 to 300. Default is 5.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Render_Clouds",
+        "description": "Generate cloud pattern using foreground/background colors.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Clouds generated.",
+            "error": "Unable to generate clouds.",
+            "info": "Generating clouds"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Filter_Render_DifferenceClouds",
+        "description": "Generate difference clouds pattern.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Difference clouds generated.",
+            "error": "Unable to generate difference clouds.",
+            "info": "Generating difference clouds"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Filter_Render_Fibers",
+        "description": "Generate fiber pattern.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Fibers generated.",
+            "error": "Unable to generate fibers.",
+            "info": "Generating fibers"
+        },
+        "params": [
+            {
+                "paramName": "variance",
+                "paramType": "number",
+                "paramDescription": "Variance from 1 to 64. Default is 16.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "strength",
+                "paramType": "number",
+                "paramDescription": "Strength from 1 to 64. Default is 4.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Render_LensFlare",
+        "description": "Add lens flare effect.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Lens flare added.",
+            "error": "Unable to add lens flare.",
+            "info": "Adding lens flare"
+        },
+        "params": [
+            {
+                "paramName": "brightness",
+                "paramType": "number",
+                "paramDescription": "Brightness from 10 to 300 percent. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "lensType",
+                "paramType": "string",
+                "paramDescription": "Lens type. Possible values: 50_300MM_ZOOM, 35MM_PRIME, 105MM_PRIME, MOVIE_PRIME. Default is 50_300MM_ZOOM.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "centerX",
+                "paramType": "number",
+                "paramDescription": "Flare center X position as percentage. Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "centerY",
+                "paramType": "number",
+                "paramDescription": "Flare center Y position as percentage. Default is 50.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Render_LightingEffects",
+        "description": "Apply lighting effects.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Lighting effects applied.",
+            "error": "Unable to apply lighting effects.",
+            "info": "Applying lighting effects"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Filter_Sharpen_Sharpen",
+        "description": "Apply basic sharpening.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Sharpening applied.",
+            "error": "Unable to apply sharpening.",
+            "info": "Applying sharpening"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Filter_Sharpen_SharpenMore",
+        "description": "Apply stronger sharpening.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Sharpen More applied.",
+            "error": "Unable to apply Sharpen More.",
+            "info": "Applying Sharpen More"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Filter_Sharpen_SharpenEdges",
+        "description": "Sharpen edges only.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Edges sharpened.",
+            "error": "Unable to sharpen edges.",
+            "info": "Sharpening edges"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Filter_Sharpen_UnsharpMask",
+        "description": "Apply unsharp mask for precise sharpening.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Unsharp mask applied.",
+            "error": "Unable to apply unsharp mask.",
+            "info": "Applying unsharp mask"
+        },
+        "params": [
+            {
+                "paramName": "amount",
+                "paramType": "number",
+                "paramDescription": "Amount from 1 to 500 percent. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "radius",
+                "paramType": "number",
+                "paramDescription": "Radius from 0.1 to 250 pixels. Default is 1.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "threshold",
+                "paramType": "number",
+                "paramDescription": "Threshold from 0 to 255. Default is 0.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Sharpen_SmartSharpen",
+        "description": "Apply smart sharpening with advanced controls.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Smart sharpen applied.",
+            "error": "Unable to apply smart sharpen.",
+            "info": "Applying smart sharpen"
+        },
+        "params": [
+            {
+                "paramName": "amount",
+                "paramType": "number",
+                "paramDescription": "Amount from 1 to 500 percent. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "radius",
+                "paramType": "number",
+                "paramDescription": "Radius from 0.1 to 64 pixels. Default is 1.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "remove",
+                "paramType": "string",
+                "paramDescription": "Blur type to remove. Possible values: GAUSSIAN_BLUR, LENS_BLUR, MOTION_BLUR. Default is GAUSSIAN_BLUR.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Stylize_Diffuse",
+        "description": "Scramble pixels for softer focus.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Diffuse applied.",
+            "error": "Unable to apply diffuse.",
+            "info": "Applying diffuse"
+        },
+        "params": [
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "Mode. Possible values: NORMAL, DARKEN_ONLY, LIGHTEN_ONLY, ANISOTROPIC. Default is NORMAL.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Stylize_Emboss",
+        "description": "Create embossed appearance.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Emboss applied.",
+            "error": "Unable to apply emboss.",
+            "info": "Applying emboss"
+        },
+        "params": [
+            {
+                "paramName": "angle",
+                "paramType": "number",
+                "paramDescription": "Light angle from -360 to 360. Default is 135.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "height",
+                "paramType": "number",
+                "paramDescription": "Height from 1 to 10. Default is 3.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "amount",
+                "paramType": "number",
+                "paramDescription": "Amount from 1 to 500 percent. Default is 100.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Stylize_Extrude",
+        "description": "Create 3D extrusion effect.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Extrude applied.",
+            "error": "Unable to apply extrude.",
+            "info": "Applying extrude"
+        },
+        "params": [
+            {
+                "paramName": "type",
+                "paramType": "string",
+                "paramDescription": "Block type. Possible values: BLOCKS, PYRAMIDS. Default is BLOCKS.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "size",
+                "paramType": "number",
+                "paramDescription": "Size from 2 to 255. Default is 30.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "depth",
+                "paramType": "number",
+                "paramDescription": "Depth from 1 to 255. Default is 30.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Stylize_FindEdges",
+        "description": "Find and highlight edges.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Edges found.",
+            "error": "Unable to find edges.",
+            "info": "Finding edges"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Filter_Stylize_OilPaint",
+        "description": "Create oil painting effect.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Oil paint applied.",
+            "error": "Unable to apply oil paint.",
+            "info": "Applying oil paint"
+        },
+        "params": [
+            {
+                "paramName": "stylization",
+                "paramType": "number",
+                "paramDescription": "Stylization from 0.1 to 10. Default is 4.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "cleanliness",
+                "paramType": "number",
+                "paramDescription": "Cleanliness from 0 to 10. Default is 3.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "scale",
+                "paramType": "number",
+                "paramDescription": "Scale from 0.1 to 10. Default is 1.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "bristleDetail",
+                "paramType": "number",
+                "paramDescription": "Bristle detail from 0 to 10. Default is 2.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Stylize_Solarize",
+        "description": "Create solarization effect.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Solarize applied.",
+            "error": "Unable to apply solarize.",
+            "info": "Applying solarize"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Filter_Stylize_Tiles",
+        "description": "Break image into tiles.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Tiles applied.",
+            "error": "Unable to apply tiles.",
+            "info": "Applying tiles"
+        },
+        "params": [
+            {
+                "paramName": "numberOfTiles",
+                "paramType": "number",
+                "paramDescription": "Number of tiles from 1 to 99. Default is 10.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "maxOffset",
+                "paramType": "number",
+                "paramDescription": "Max offset from 1 to 99 percent. Default is 10.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Stylize_TraceContour",
+        "description": "Trace brightness contours.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Trace contour applied.",
+            "error": "Unable to trace contour.",
+            "info": "Tracing contour"
+        },
+        "params": [
+            {
+                "paramName": "level",
+                "paramType": "number",
+                "paramDescription": "Level from 0 to 255. Default is 128.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "edge",
+                "paramType": "string",
+                "paramDescription": "Edge type. Possible values: LOWER, UPPER. Default is LOWER.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Stylize_Wind",
+        "description": "Create wind blur effect.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Wind applied.",
+            "error": "Unable to apply wind.",
+            "info": "Applying wind"
+        },
+        "params": [
+            {
+                "paramName": "method",
+                "paramType": "string",
+                "paramDescription": "Method. Possible values: WIND, BLAST, STAGGER. Default is WIND.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "direction",
+                "paramType": "string",
+                "paramDescription": "Direction. Possible values: FROM_THE_LEFT, FROM_THE_RIGHT. Default is FROM_THE_RIGHT.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Other_Custom",
+        "description": "Apply custom convolution filter.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Custom filter applied.",
+            "error": "Unable to apply custom filter.",
+            "info": "Applying custom filter"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Filter_Other_HighPass",
+        "description": "Retain edge detail for sharpening workflows.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "High pass applied.",
+            "error": "Unable to apply high pass.",
+            "info": "Applying high pass"
+        },
+        "params": [
+            {
+                "paramName": "radius",
+                "paramType": "number",
+                "paramDescription": "Radius from 0.1 to 1000 pixels. Default is 10.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Other_Maximum",
+        "description": "Expand white areas (dilate).",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Maximum applied.",
+            "error": "Unable to apply maximum.",
+            "info": "Applying maximum"
+        },
+        "params": [
+            {
+                "paramName": "radius",
+                "paramType": "number",
+                "paramDescription": "Radius from 1 to 500 pixels. Default is 1.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Other_Minimum",
+        "description": "Expand black areas (erode).",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Minimum applied.",
+            "error": "Unable to apply minimum.",
+            "info": "Applying minimum"
+        },
+        "params": [
+            {
+                "paramName": "radius",
+                "paramType": "number",
+                "paramDescription": "Radius from 1 to 500 pixels. Default is 1.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Filter_Other_Offset",
+        "description": "Offset the image for seamless pattern creation.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Offset applied.",
+            "error": "Unable to apply offset.",
+            "info": "Applying offset"
+        },
+        "params": [
+            {
+                "paramName": "horizontal",
+                "paramType": "number",
+                "paramDescription": "Horizontal offset in pixels. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "vertical",
+                "paramType": "number",
+                "paramDescription": "Vertical offset in pixels. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "undefinedAreas",
+                "paramType": "string",
+                "paramDescription": "Undefined areas handling. Possible values: SET_TO_TRANSPARENT, REPEAT_EDGE_PIXELS, WRAP_AROUND. Default is WRAP_AROUND.",
+                "isMandatory": false
+            }
+        ]
+    }
+]

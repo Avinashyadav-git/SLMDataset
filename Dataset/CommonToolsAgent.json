@@ -1,0 +1,25 @@
+[
+  {
+    "functionName": "CommonTool_AutoSharpen",
+    "description": "Apply automatic sharpening to enhance edge definition and image clarity using built-in algorithms.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Auto Sharpen applied successfully.",
+      "error": "Unable to apply Auto Sharpen. Make sure a document is open and try again.",
+      "info": "Auto Sharpening"
+    },
+    "params": []
+  },
+  {
+	  "functionName": "CommonTool_ImageResize",
+	  "description": "Open the Image Size dialog to resize the current document.",
+	  "prerequisites": ["documentOnCanvas"],
+	  "userMessage": {
+		  "success": "Image Size dialog is open! Adjust the dimensions and hit OK to resize.",
+		  "error": "Unable to open Image Size dialog. Ensure a document is open and try again.",
+		  "info": "Opening the Image Size dialog to adjust dimensions"
+	  },
+	  "params": [],
+	  "undoable": false
+  }
+]

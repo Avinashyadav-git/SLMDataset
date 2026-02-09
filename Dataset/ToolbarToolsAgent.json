@@ -1,0 +1,21 @@
+[
+    {
+        "functionName": "ToolbarTool_SelectTool",
+        "description": "Select and activate a tool from the quick tab toolbar. Available parameters: HAND, ZOOM (zoom in/out), SELECTION_BRUSH (precise selections), CROP (crop/resize), MOVE (reposition elements), REMOVE (object removal). For consecutive select tool calls, only consider the last one. Strictly select when user shows the intent clearly with proper tool name, do not confuse the tool names with other feature names like Moving Overlay is a separate feature and not move toolbar.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Tool selected and active in the quick tab toolbar.",
+            "error": "Unable to select the tool. It may not be available or there was an issue switching tools.",
+            "info": "Selecting the specific tool in the toolbar"
+        },
+        "params": [
+            {
+                "paramName": "toolId",
+                "paramType": "string",
+                "paramDescription": "Tool name. Possible values: ZOOM, SELECTION_BRUSH, CROP, MOVE, REMOVE. Optional.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    }
+]

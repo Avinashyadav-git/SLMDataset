@@ -1,0 +1,562 @@
+[
+    {
+        "functionName": "Color_SetForeground",
+        "description": "Set the foreground color used for painting and filling.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Foreground color set successfully.",
+            "error": "Unable to set foreground color. Invalid color values provided.",
+            "info": "Setting foreground color"
+        },
+        "params": [
+            {
+                "paramName": "red",
+                "paramType": "number",
+                "paramDescription": "Red component (0-255). Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "green",
+                "paramType": "number",
+                "paramDescription": "Green component (0-255). Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "blue",
+                "paramType": "number",
+                "paramDescription": "Blue component (0-255). Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "hex",
+                "paramType": "string",
+                "paramDescription": "Hex color code (e.g., '#FF5733' or 'FF5733'). Overrides RGB values if provided.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Color_SetBackground",
+        "description": "Set the background color used for erasing and canvas operations.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Background color set successfully.",
+            "error": "Unable to set background color. Invalid color values provided.",
+            "info": "Setting background color"
+        },
+        "params": [
+            {
+                "paramName": "red",
+                "paramType": "number",
+                "paramDescription": "Red component (0-255). Default is 255.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "green",
+                "paramType": "number",
+                "paramDescription": "Green component (0-255). Default is 255.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "blue",
+                "paramType": "number",
+                "paramDescription": "Blue component (0-255). Default is 255.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "hex",
+                "paramType": "string",
+                "paramDescription": "Hex color code (e.g., '#FFFFFF' or 'FFFFFF'). Overrides RGB values if provided.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Color_SwapForegroundBackground",
+        "description": "Swap the foreground and background colors.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Foreground and background colors swapped.",
+            "error": "Unable to swap colors.",
+            "info": "Swapping foreground and background colors"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Color_ResetToDefault",
+        "description": "Reset foreground to black and background to white.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Colors reset to default (black foreground, white background).",
+            "error": "Unable to reset colors.",
+            "info": "Resetting colors to default"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Color_OpenColorPicker",
+        "description": "Open the color picker dialog to choose a color.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Color picker dialog is open. Select a color and click OK.",
+            "error": "Unable to open color picker.",
+            "info": "Opening color picker"
+        },
+        "params": [
+            {
+                "paramName": "target",
+                "paramType": "string",
+                "paramDescription": "Which color to set. Possible values: FOREGROUND, BACKGROUND. Default is FOREGROUND.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Color_SampleColor",
+        "description": "Sample a color from the image using the eyedropper tool.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Color sampled from image.",
+            "error": "Unable to sample color. Ensure a document is open.",
+            "info": "Sampling color from image"
+        },
+        "params": [
+            {
+                "paramName": "x",
+                "paramType": "number",
+                "paramDescription": "Horizontal position as percentage (0-100). Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "y",
+                "paramType": "number",
+                "paramDescription": "Vertical position as percentage (0-100). Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "sampleSize",
+                "paramType": "string",
+                "paramDescription": "Sample size. Possible values: POINT, 3X3_AVERAGE, 5X5_AVERAGE, 11X11_AVERAGE, 31X31_AVERAGE, 51X51_AVERAGE, 101X101_AVERAGE. Default is POINT.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "target",
+                "paramType": "string",
+                "paramDescription": "Set sampled color as. Possible values: FOREGROUND, BACKGROUND. Default is FOREGROUND.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Color_Fill",
+        "description": "Fill the selection or layer with the specified color.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Fill applied successfully.",
+            "error": "Unable to fill. Ensure a document is open.",
+            "info": "Filling with color"
+        },
+        "params": [
+            {
+                "paramName": "fillType",
+                "paramType": "string",
+                "paramDescription": "What to fill with. Possible values: FOREGROUND, BACKGROUND, COLOR, CONTENT_AWARE, PATTERN. Default is FOREGROUND.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorRed",
+                "paramType": "number",
+                "paramDescription": "Red component if fillType is COLOR (0-255).",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorGreen",
+                "paramType": "number",
+                "paramDescription": "Green component if fillType is COLOR (0-255).",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorBlue",
+                "paramType": "number",
+                "paramDescription": "Blue component if fillType is COLOR (0-255).",
+                "isMandatory": false
+            },
+            {
+                "paramName": "opacity",
+                "paramType": "number",
+                "paramDescription": "Fill opacity from 0 to 100 percent. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "blendMode",
+                "paramType": "string",
+                "paramDescription": "Blending mode. Possible values: NORMAL, MULTIPLY, SCREEN, OVERLAY, SOFT_LIGHT, HARD_LIGHT, COLOR, LUMINOSITY. Default is NORMAL.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "preserveTransparency",
+                "paramType": "boolean",
+                "paramDescription": "Only fill non-transparent pixels. Default is false.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Color_Gradient",
+        "description": "Apply a gradient fill to the selection or layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Gradient applied successfully.",
+            "error": "Unable to apply gradient. Ensure a document is open.",
+            "info": "Applying gradient"
+        },
+        "params": [
+            {
+                "paramName": "style",
+                "paramType": "string",
+                "paramDescription": "Gradient style. Possible values: LINEAR, RADIAL, ANGLE, REFLECTED, DIAMOND. Default is LINEAR.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "startX",
+                "paramType": "number",
+                "paramDescription": "Start X position as percentage (0-100). Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "startY",
+                "paramType": "number",
+                "paramDescription": "Start Y position as percentage (0-100). Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "endX",
+                "paramType": "number",
+                "paramDescription": "End X position as percentage (0-100). Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "endY",
+                "paramType": "number",
+                "paramDescription": "End Y position as percentage (0-100). Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "gradientType",
+                "paramType": "string",
+                "paramDescription": "Type of gradient. Possible values: FOREGROUND_TO_BACKGROUND, FOREGROUND_TO_TRANSPARENT, BLACK_TO_WHITE, CUSTOM. Default is FOREGROUND_TO_BACKGROUND.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "reverse",
+                "paramType": "boolean",
+                "paramDescription": "Reverse gradient direction. Default is false.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "dither",
+                "paramType": "boolean",
+                "paramDescription": "Add dithering to reduce banding. Default is true.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "opacity",
+                "paramType": "number",
+                "paramDescription": "Gradient opacity from 0 to 100 percent. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "blendMode",
+                "paramType": "string",
+                "paramDescription": "Blending mode. Possible values: NORMAL, MULTIPLY, SCREEN, OVERLAY. Default is NORMAL.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Color_OpenSwatches",
+        "description": "Open the Swatches panel.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Swatches panel opened.",
+            "error": "Unable to open Swatches panel.",
+            "info": "Opening Swatches panel"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Color_AddToSwatches",
+        "description": "Add the current foreground color to the Swatches panel.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Color added to swatches.",
+            "error": "Unable to add color to swatches.",
+            "info": "Adding color to swatches"
+        },
+        "params": [
+            {
+                "paramName": "name",
+                "paramType": "string",
+                "paramDescription": "Name for the new swatch. Default is auto-generated based on color values.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Color_LoadSwatchLibrary",
+        "description": "Load a color swatch library.",
+        "prerequisites": [],
+        "userMessage": {
+            "success": "Swatch library loaded.",
+            "error": "Unable to load swatch library. The file may be invalid or inaccessible.",
+            "info": "Loading swatch library"
+        },
+        "params": [
+            {
+                "paramName": "library",
+                "paramType": "string",
+                "paramDescription": "Built-in library to load. Possible values: WEB_SAFE, PASTEL, EARTH_TONES, SKIN_TONES, FOLIAGE, METALS. Default is WEB_SAFE.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Color_ConvertToGrayscale",
+        "description": "Convert the document color mode to grayscale.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document converted to grayscale.",
+            "error": "Unable to convert to grayscale. Ensure a document is open.",
+            "info": "Converting to grayscale"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Color_ConvertToRGB",
+        "description": "Convert the document color mode to RGB.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document converted to RGB color mode.",
+            "error": "Unable to convert to RGB. Ensure a document is open.",
+            "info": "Converting to RGB"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Color_ConvertToCMYK",
+        "description": "Convert the document color mode to CMYK for print.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document converted to CMYK color mode.",
+            "error": "Unable to convert to CMYK. Ensure a document is open.",
+            "info": "Converting to CMYK"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Color_ConvertToLab",
+        "description": "Convert the document color mode to Lab color.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document converted to Lab color mode.",
+            "error": "Unable to convert to Lab. Ensure a document is open.",
+            "info": "Converting to Lab color"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Color_AssignProfile",
+        "description": "Assign a color profile to the document without converting colors.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Color profile assigned.",
+            "error": "Unable to assign color profile. Ensure a document is open.",
+            "info": "Assigning color profile"
+        },
+        "params": [
+            {
+                "paramName": "profile",
+                "paramType": "string",
+                "paramDescription": "Color profile to assign. Possible values: SRGB, ADOBE_RGB, PROPHOTO_RGB, DISPLAY_P3, NONE. Default is SRGB.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Color_ConvertToProfile",
+        "description": "Convert the document to a different color profile.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Document converted to new color profile.",
+            "error": "Unable to convert color profile. Ensure a document is open.",
+            "info": "Converting color profile"
+        },
+        "params": [
+            {
+                "paramName": "profile",
+                "paramType": "string",
+                "paramDescription": "Target color profile. Possible values: SRGB, ADOBE_RGB, PROPHOTO_RGB, DISPLAY_P3. Default is SRGB.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "intent",
+                "paramType": "string",
+                "paramDescription": "Rendering intent. Possible values: PERCEPTUAL, SATURATION, RELATIVE_COLORIMETRIC, ABSOLUTE_COLORIMETRIC. Default is RELATIVE_COLORIMETRIC.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "blackPointCompensation",
+                "paramType": "boolean",
+                "paramDescription": "Use black point compensation. Default is true.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "dither",
+                "paramType": "boolean",
+                "paramDescription": "Use dithering to reduce banding. Default is true.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Color_ReplaceColor",
+        "description": "Replace a specific color with another color in the image.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Color replaced successfully.",
+            "error": "Unable to replace color. Ensure a document is open.",
+            "info": "Replacing color in image"
+        },
+        "params": [
+            {
+                "paramName": "sourceRed",
+                "paramType": "number",
+                "paramDescription": "Red component of color to replace (0-255).",
+                "isMandatory": true
+            },
+            {
+                "paramName": "sourceGreen",
+                "paramType": "number",
+                "paramDescription": "Green component of color to replace (0-255).",
+                "isMandatory": true
+            },
+            {
+                "paramName": "sourceBlue",
+                "paramType": "number",
+                "paramDescription": "Blue component of color to replace (0-255).",
+                "isMandatory": true
+            },
+            {
+                "paramName": "targetRed",
+                "paramType": "number",
+                "paramDescription": "Red component of replacement color (0-255).",
+                "isMandatory": true
+            },
+            {
+                "paramName": "targetGreen",
+                "paramType": "number",
+                "paramDescription": "Green component of replacement color (0-255).",
+                "isMandatory": true
+            },
+            {
+                "paramName": "targetBlue",
+                "paramType": "number",
+                "paramDescription": "Blue component of replacement color (0-255).",
+                "isMandatory": true
+            },
+            {
+                "paramName": "fuzziness",
+                "paramType": "number",
+                "paramDescription": "Color tolerance from 0 to 200. Default is 40.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Color_SelectiveColor",
+        "description": "Adjust specific color ranges without affecting others.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Selective color adjustment applied.",
+            "error": "Unable to apply selective color adjustment. Ensure a document is open.",
+            "info": "Adjusting selective colors"
+        },
+        "params": [
+            {
+                "paramName": "colorRange",
+                "paramType": "string",
+                "paramDescription": "Color range to adjust. Possible values: REDS, YELLOWS, GREENS, CYANS, BLUES, MAGENTAS, WHITES, NEUTRALS, BLACKS. Default is REDS.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "cyan",
+                "paramType": "number",
+                "paramDescription": "Cyan adjustment from -100 to 100. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "magenta",
+                "paramType": "number",
+                "paramDescription": "Magenta adjustment from -100 to 100. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "yellow",
+                "paramType": "number",
+                "paramDescription": "Yellow adjustment from -100 to 100. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "black",
+                "paramType": "number",
+                "paramDescription": "Black adjustment from -100 to 100. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "method",
+                "paramType": "string",
+                "paramDescription": "Adjustment method. Possible values: RELATIVE, ABSOLUTE. Default is RELATIVE.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Color_MatchColor",
+        "description": "Match colors between images or layers.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Colors matched successfully.",
+            "error": "Unable to match colors. Ensure a document is open.",
+            "info": "Matching colors"
+        },
+        "params": [
+            {
+                "paramName": "luminance",
+                "paramType": "number",
+                "paramDescription": "Luminance adjustment from 1 to 200. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "colorIntensity",
+                "paramType": "number",
+                "paramDescription": "Color intensity from 1 to 200. Default is 100.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "fade",
+                "paramType": "number",
+                "paramDescription": "Fade amount from 0 to 100. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "neutralize",
+                "paramType": "boolean",
+                "paramDescription": "Remove color cast. Default is false.",
+                "isMandatory": false
+            }
+        ]
+    }
+]

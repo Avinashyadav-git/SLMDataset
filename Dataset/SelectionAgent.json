@@ -1,0 +1,405 @@
+[
+    {
+        "functionName": "Selection_SelectAll",
+        "description": "Select the entire canvas or active layer.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Entire canvas selected.",
+            "error": "Unable to select all. Ensure a document is open and try again.",
+            "info": "Selecting entire canvas"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Selection_Deselect",
+        "description": "Remove current selection and deselect everything.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Selection removed successfully.",
+            "error": "Unable to deselect. There may be no active selection.",
+            "info": "Removing selection"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Selection_Reselect",
+        "description": "Restore the previous selection that was deselected.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Previous selection restored.",
+            "error": "Unable to reselect. There may be no previous selection to restore.",
+            "info": "Restoring previous selection"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Selection_Inverse",
+        "description": "Invert the current selection to select the opposite area.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Selection inverted successfully.",
+            "error": "Unable to invert selection. Ensure there is an active selection.",
+            "info": "Inverting selection"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Selection_Rectangular",
+        "description": "Create a rectangular selection on the canvas.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Rectangular selection created.",
+            "error": "Unable to create rectangular selection. Ensure a document is open and try again.",
+            "info": "Creating rectangular selection"
+        },
+        "params": [
+            {
+                "paramName": "x",
+                "paramType": "number",
+                "paramDescription": "Left position of selection as percentage of canvas width (0-100). Default is 25.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "y",
+                "paramType": "number",
+                "paramDescription": "Top position of selection as percentage of canvas height (0-100). Default is 25.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "width",
+                "paramType": "number",
+                "paramDescription": "Width of selection as percentage of canvas width (0-100). Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "height",
+                "paramType": "number",
+                "paramDescription": "Height of selection as percentage of canvas height (0-100). Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "feather",
+                "paramType": "number",
+                "paramDescription": "Feather radius in pixels for soft edges. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "Selection mode. Possible values: NEW, ADD, SUBTRACT, INTERSECT. Default is NEW.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Selection_Elliptical",
+        "description": "Create an elliptical or circular selection on the canvas.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Elliptical selection created.",
+            "error": "Unable to create elliptical selection. Ensure a document is open and try again.",
+            "info": "Creating elliptical selection"
+        },
+        "params": [
+            {
+                "paramName": "x",
+                "paramType": "number",
+                "paramDescription": "Left position of bounding box as percentage of canvas width (0-100). Default is 25.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "y",
+                "paramType": "number",
+                "paramDescription": "Top position of bounding box as percentage of canvas height (0-100). Default is 25.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "width",
+                "paramType": "number",
+                "paramDescription": "Width of bounding box as percentage of canvas width (0-100). Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "height",
+                "paramType": "number",
+                "paramDescription": "Height of bounding box as percentage of canvas height (0-100). Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "feather",
+                "paramType": "number",
+                "paramDescription": "Feather radius in pixels for soft edges. Default is 0.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "Selection mode. Possible values: NEW, ADD, SUBTRACT, INTERSECT. Default is NEW.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Selection_ColorRange",
+        "description": "Select pixels based on color similarity.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Color range selection created.",
+            "error": "Unable to create color range selection. Ensure a document is open and try again.",
+            "info": "Selecting by color range"
+        },
+        "params": [
+            {
+                "paramName": "fuzziness",
+                "paramType": "number",
+                "paramDescription": "Color tolerance from 0 to 200. Higher values select more similar colors. Default is 40.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "samplePoint",
+                "paramType": "string",
+                "paramDescription": "What to sample. Possible values: SAMPLED_COLORS, REDS, YELLOWS, GREENS, CYANS, BLUES, MAGENTAS, HIGHLIGHTS, MIDTONES, SHADOWS, SKIN_TONES. Default is SAMPLED_COLORS.",
+                "isMandatory": false
+            }
+        ],
+        "undoable": false
+    },
+    {
+        "functionName": "Selection_Feather",
+        "description": "Add feathering to soften the edges of the current selection.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Selection feathered successfully.",
+            "error": "Unable to feather selection. Ensure there is an active selection.",
+            "info": "Feathering selection edges"
+        },
+        "params": [
+            {
+                "paramName": "radius",
+                "paramType": "number",
+                "paramDescription": "Feather radius in pixels from 0.2 to 250. Default is 5.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Selection_Expand",
+        "description": "Expand the current selection by a specified number of pixels.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Selection expanded successfully.",
+            "error": "Unable to expand selection. Ensure there is an active selection.",
+            "info": "Expanding selection"
+        },
+        "params": [
+            {
+                "paramName": "pixels",
+                "paramType": "number",
+                "paramDescription": "Number of pixels to expand from 1 to 100. Default is 1.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Selection_Contract",
+        "description": "Contract the current selection by a specified number of pixels.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Selection contracted successfully.",
+            "error": "Unable to contract selection. Ensure there is an active selection.",
+            "info": "Contracting selection"
+        },
+        "params": [
+            {
+                "paramName": "pixels",
+                "paramType": "number",
+                "paramDescription": "Number of pixels to contract from 1 to 100. Default is 1.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Selection_Smooth",
+        "description": "Smooth jagged edges of the current selection.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Selection smoothed successfully.",
+            "error": "Unable to smooth selection. Ensure there is an active selection.",
+            "info": "Smoothing selection edges"
+        },
+        "params": [
+            {
+                "paramName": "radius",
+                "paramType": "number",
+                "paramDescription": "Sample radius in pixels from 1 to 100. Default is 2.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Selection_Border",
+        "description": "Convert selection to a border selection of specified width.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Selection border created successfully.",
+            "error": "Unable to create selection border. Ensure there is an active selection.",
+            "info": "Creating selection border"
+        },
+        "params": [
+            {
+                "paramName": "width",
+                "paramType": "number",
+                "paramDescription": "Border width in pixels from 1 to 200. Default is 5.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Selection_Grow",
+        "description": "Grow the selection to include adjacent similar pixels.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Selection grown successfully.",
+            "error": "Unable to grow selection. Ensure there is an active selection.",
+            "info": "Growing selection to similar pixels"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Selection_Similar",
+        "description": "Select all similar colored pixels throughout the entire image.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Similar pixels selected successfully.",
+            "error": "Unable to select similar pixels. Ensure there is an active selection.",
+            "info": "Selecting similar pixels"
+        },
+        "params": []
+    },
+    {
+        "functionName": "Selection_TransformSelection",
+        "description": "Transform the selection shape without affecting the image content.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Selection transformation mode activated. Adjust the selection and press Enter to confirm.",
+            "error": "Unable to transform selection. Ensure there is an active selection.",
+            "info": "Transforming selection"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Selection_SaveSelection",
+        "description": "Save the current selection as an alpha channel for later use.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Selection saved as channel.",
+            "error": "Unable to save selection. Ensure there is an active selection.",
+            "info": "Saving selection to channel"
+        },
+        "params": [
+            {
+                "paramName": "channelName",
+                "paramType": "string",
+                "paramDescription": "Name for the saved selection channel. Default is 'Selection 1'.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Selection_LoadSelection",
+        "description": "Load a previously saved selection from an alpha channel.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Selection loaded from channel.",
+            "error": "Unable to load selection. The specified channel may not exist.",
+            "info": "Loading selection from channel"
+        },
+        "params": [
+            {
+                "paramName": "channelName",
+                "paramType": "string",
+                "paramDescription": "Name of the channel to load selection from.",
+                "isMandatory": true
+            },
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "How to combine with existing selection. Possible values: NEW, ADD, SUBTRACT, INTERSECT. Default is NEW.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Selection_QuickMask",
+        "description": "Enter Quick Mask mode to paint and refine selections.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Quick Mask mode activated. Paint with black to subtract from selection, white to add.",
+            "error": "Unable to enter Quick Mask mode. Ensure a document is open.",
+            "info": "Entering Quick Mask mode"
+        },
+        "params": [],
+        "undoable": false
+    },
+    {
+        "functionName": "Selection_MagicWand",
+        "description": "Select an area of similar colors with a single click.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Magic wand selection created.",
+            "error": "Unable to create magic wand selection. Ensure a document is open and try again.",
+            "info": "Creating magic wand selection"
+        },
+        "params": [
+            {
+                "paramName": "x",
+                "paramType": "number",
+                "paramDescription": "Click position X as percentage of canvas width (0-100). Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "y",
+                "paramType": "number",
+                "paramDescription": "Click position Y as percentage of canvas height (0-100). Default is 50.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "tolerance",
+                "paramType": "number",
+                "paramDescription": "Color tolerance from 0 to 255. Higher values select more colors. Default is 32.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "contiguous",
+                "paramType": "boolean",
+                "paramDescription": "Select only connected pixels. Default is true.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "antiAlias",
+                "paramType": "boolean",
+                "paramDescription": "Smooth selection edges. Default is true.",
+                "isMandatory": false
+            },
+            {
+                "paramName": "mode",
+                "paramType": "string",
+                "paramDescription": "Selection mode. Possible values: NEW, ADD, SUBTRACT, INTERSECT. Default is NEW.",
+                "isMandatory": false
+            }
+        ]
+    },
+    {
+        "functionName": "Selection_RefineEdge",
+        "description": "Open Refine Edge dialog to improve selection edges especially for hair and fur.",
+        "prerequisites": ["documentOnCanvas", "hasSelection"],
+        "userMessage": {
+            "success": "Refine Edge dialog is open. Adjust settings and click OK to apply.",
+            "error": "Unable to open Refine Edge. Ensure there is an active selection.",
+            "info": "Opening Refine Edge dialog"
+        },
+        "params": [],
+        "undoable": false
+    }
+]

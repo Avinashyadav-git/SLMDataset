@@ -1,0 +1,268 @@
+[
+  {
+    "functionName": "QuickAction_ApplyAutoSmartFix",
+    "description": "Auto-correct overexposed and underexposed photos using smart exposure adjustment algorithms.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Smart Fix applied successfully.",
+      "error": "Unable to apply Smart Fix. The image may not be suitable for automatic correction or there was an issue processing it.",
+      "info": "Fixing overexposed and underexposed photos using smart exposure adjustment"
+    },
+    "undoable": false
+  },
+  {
+    "functionName": "QuickAction_ApplyAutoColorCorrection",
+    "description": "Automatically balance tonal values between shadows, mid-tones, and highlights for improved color harmony.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Color correction applied successfully.",
+      "error": "Unable to apply color correction. The image may already be balanced or there was an issue processing colors.",
+      "info": "Applying automatic color correction"
+    },
+    "undoable": false
+  },
+  {
+    "functionName": "QuickAction_ApplyAutoDehaze",
+    "description": "Remove or reduce atmospheric haze and fog from photos to improve clarity and visibility.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Dehaze effect applied successfully.",
+      "error": "Unable to apply Dehaze effect. The image may not contain detectable haze or there was an issue processing it.",
+      "info": "Removing haze"
+    },
+    "undoable": false
+  },
+  {
+    "functionName": "QuickAction_ApplyAutoRedEye",
+    "description": "Automatically detect and fix red eye artifacts in photos caused by camera flash.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Red eye correction applied successfully.",
+      "error": "Unable to fix red eyes. No red eyes detected or there was an issue processing the correction.",
+      "info": "Automatically detecting and fixing red eye artifacts in photos caused by camera flash"
+    },
+    "undoable": false
+  },
+  {
+    "functionName": "QuickAction_ApplyDepthBasedBlur",
+    "description": "Add realistic depth of field effect by blurring background while keeping subject sharp.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Depth blur applied successfully.",
+      "error": "Unable to apply depth blur. The image may not be suitable for depth detection or there was an issue processing the effect.",
+      "info": "Adding realistic depth of field effect by blurring background while keeping subject sharp"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplyJpegArtifectRemoval",
+    "description": "Reduce JPEG compression artifacts and noise to improve image quality.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "JPEG artifacts removed successfully.",
+      "error": "Unable to remove JPEG artifacts. The image may not contain detectable artifacts or there was an issue processing the correction.",
+      "info": "Reducing JPEG compression artifacts"
+    },
+    "undoable": false
+  },
+  {
+    "functionName": "QuickAction_ApplyBlueSky",
+    "description": "Replace dull or faded sky with vibrant blue sky to enhance photo aesthetics.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Blue sky added successfully.",
+      "error": "Unable to add blue sky. No sky detected or there was an issue processing the replacement.",
+      "info": "Replacing dull or faded sky with vibrant blue sky"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplySmoothSkin",
+    "description": "Make people look their best with automatic skin smoothing in portraits.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Skin smoothing applied successfully.",
+      "error": "Unable to apply skin smoothing. No faces detected or there was an issue processing the enhancement.",
+      "info": "Making people look their best with automatic skin smoothing"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplyColorise",
+    "description": "Quickly transform a black-and-white photo into a colored photo.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Black-and-white photo colorized successfully.",
+      "error": "Unable to colorize the photo. The image may already be in color or there was an issue processing the colorization.",
+      "info": "Transforming the black-and-white photo into a colored photo"
+    }
+
+  },
+  {
+    "functionName": "QuickAction_ApplySelectBg",
+    "description": "Select the background of your photo.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Background selected successfully.",
+      "error": "Unable to select background. It could not be detected or separated from the subject.",
+      "info": "Selecting the background of your photo"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplyRemoveBg",
+    "description": "Remove the background from your photo.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Background removed successfully.",
+      "error": "Unable to remove background. It could not be detected or separated from the subject.",
+      "info": "Removing the background from your photo"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplyBlackAndWhiteBg",
+    "description": "Convert the photo background from colorful to black and white.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Background converted to black and white successfully.",
+      "error": "Unable to convert background to black and white. It could not be detected or separated from the subject.",
+      "info": "Converting the photo background from colorful to black and white"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplyBlurBg",
+    "description": "Blur the background of your photo to make your main subject pop.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Background blurred successfully.",
+      "error": "Unable to blur background. It could not be detected or separated from the subject.",
+      "info": "Blurring the background of your photo"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplyWhiteBg",
+    "description": "Convert your photo background to a white background.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Background changed to white successfully.",
+      "error": "Unable to replace background with white. It could not be detected or separated from the subject.",
+      "info": "Converting your photo background to a white"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplySelectSubject",
+    "description": "Select the subject in your photo.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Subject selected successfully.",
+      "error": "Unable to select subject. No clear subject detected in the image.",
+      "info": "Selecting the subject in your photo"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplySelectSky",
+    "description": "Select the sky from the photo.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Sky selected successfully.",
+      "error": "Unable to select sky. No sky detected in the image.",
+      "info": "Selecting the sky from the photo"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplyBlackAndWhiteSubject",
+    "description": "Convert the subject in your photo to black-and-white.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Subject converted to black and white successfully.",
+      "error": "Unable to convert subject to black and white. It could not be detected or separated from the background.",
+      "info": "Converting the subject in your photo to black-and-white"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplySubjectPop",
+    "description": "Make the colors in your photo subject more vibrant and make it pop.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Subject colors enhanced successfully.",
+      "error": "Unable to enhance subject colors. The subject could not be detected or there was an issue processing the enhancement.",
+      "info": "Making the colors in your photo subject more vibrant and make it pop"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplySelectSubjectStroke",
+    "description": "Convert the subject in your photo into a sticker.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Subject converted to sticker successfully.",
+      "error": "Unable to create sticker effect. The subject could not be detected or separated from the background.",
+      "info": "Converting the subject in your photo into a sticker"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplyLensFlare",
+    "description": "Add lens flare to your photo.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Lens flare added successfully.",
+      "error": "Unable to add lens flare. There was an issue applying the effect to the image.",
+      "info": "Adding lens flare to your photo"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplyVignette",
+    "description": "Create photo borders by darkening the corners.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Vignette effect applied successfully.",
+      "error": "Unable to apply vignette effect. There was an issue processing the effect.",
+      "info": "Creating photo borders by darkening the corners"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplyStainedGlass",
+    "description": "Create the appearance of a stained glass window in your photo.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Stained glass effect applied successfully.",
+      "error": "Unable to apply stained glass effect. There was an issue processing the transformation.",
+      "info": "Creating the appearance of a stained glass window in your photo"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplyDuotone",
+    "description": "Apply the Duotone effect to your photo for a beautiful two-color creation.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Duotone effect applied successfully.",
+      "error": "Unable to apply duotone effect. There was an issue processing the transformation.",
+      "info": "Applying the Duotone effect to your photo"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplyBlackAndWhiteEffect",
+    "description": "Convert your photo to black and white.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Photo converted to black and white successfully.",
+      "error": "Unable to convert to black and white. There was an issue processing the conversion.",
+      "info": "Converting your photo to black and white"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplyArtisticEffect",
+    "description": "Apply the woodblock effect to your photo.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Woodblock effect applied successfully.",
+      "error": "Unable to apply woodblock effect. There was an issue processing the transformation.",
+      "info": "Applying the woodblock effect to your photo"
+    }
+  },
+  {
+    "functionName": "QuickAction_ApplyColorTransferEffect",
+    "description": "Enhance your photo with the captivating oceanic sunset filter effect.",
+    "prerequisites": ["documentOnCanvas"],
+    "userMessage": {
+      "success": "Ocean sunset effect applied successfully.",
+      "error": "Unable to apply ocean sunset effect. There was an issue processing the effect.",
+      "info": "Enhancing your photo with the captivating oceanic sunset filter effect"
+    }
+  }
+]

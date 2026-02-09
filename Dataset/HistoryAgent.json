@@ -1,0 +1,24 @@
+[
+    {
+        "functionName": "History_Undo",
+        "description": "Undo the last operation by reverting to the previous history state.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Undo successful.",
+            "error": "Unable to undo. No previous actions or the action cannot be reversed.",
+            "info": "Undoing the last operation"
+        },
+        "params": []
+    },
+    {
+        "functionName": "History_Redo",
+        "description": "Redo the previously undone operation by advancing to the next history state.",
+        "prerequisites": ["documentOnCanvas"],
+        "userMessage": {
+            "success": "Redo successful. The next history state is now active.",
+            "error": "Unable to redo. No actions available to redo or the action cannot be restored.",
+            "info": "Redoing the previously undone operation"
+        },
+        "params": []
+    }
+]
